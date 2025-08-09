@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard | EcoFi</title>
+    <link rel="stylesheet" href="styles5.css">
+    <script defer src="firebase-config.js"></script>
+    <script defer src="faq.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="dashboard.js"></script>
+</head>
+<body>
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+    </style>
+
+    <!-- Navigation Bar -->
+<!-- Modern Navigation Bar from main2.html -->
+<header class="header">
+    <div class="logo">
+        <img src="logo.png" alt="EcoFi Logo">
+       
+    </div>
+    <nav class="taskbar">
+        <a href="index.html">Home</a>
+        <a href="#issue-reporting">Report Issue</a>
+        <a href="#issue-status">Issue Status</a>
+        <a href="#feedback">Feedback</a>
+        <a href="#faq">FAQ</a>
+        <a href="login.html" onclick="logout()">Logout</a>
+    </nav>
+</header>
+
+
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="container">
+            <h2>Welcome, <span id="user-name">User</span>! 👋</h2>
+            <p>Start making a difference today with smart waste management!</p>
+        </div>
+    </section>
+
+    <section id="dashboard" class="dashboard">
+        <div class="container">
+            <h2>📊 Dashboard Overview</h2>
+            <div class="dashboard-container">
+                <div class="dashboard-card">
+                    <h3>Eco-Coins Earned</h3>
+                    <p><span id="eco-coins">150</span></p>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Waste Recycled</h3>
+                    <p><span id="waste-recycled">10 kg</span></p>
+                </div>
+                <div class="dashboard-card">
+                    <h3>CO₂ Reduced</h3>
+                    <p><span id="co2-reduced">25 kg</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Analytics Section -->
+<section id="analytics" class="analytics">
+    <div class="container">
+        <h2>📈 Your Recycling Impact</h2>
+
+        <div class="chart-grid">
+            <!-- Waste Chart -->
+            <div class="chart-box">
+                <h3>♻️ Waste Recycling Impact</h3>
+                <canvas id="wasteChart"></canvas>
+            </div>
+
+            <!-- Issue Reports Chart -->
+            <div class="chart-box">
+                <h3>📌 Issue Reports & Status</h3>
+                <canvas id="issueChart"></canvas>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+    <!-- Issue Reporting -->
+    <section id="issue-reporting" class="issue-reporting">
+        <div class="container">
+            <h2>🚨 Report Illegal Dumping</h2>
+            <label for="location">Location:</label>
+            <input type="text" id="location" placeholder="Enter location">
+
+            <label for="description">Description:</label>
+            <textarea id="description" placeholder="Describe the issue"></textarea>
+
+            <label for="issueImage">Upload Image:</label>
+            <input type="file" id="issueImage" accept="image/*">
+
+            <button onclick="submitIssue()">Submit Issue</button>
+            <p id="issue-status"></p>
+        </div>
+    </section>
+
+    <!-- Issue Status -->
+    <section id="issue-status" class="issue-status">
+        <div class="container">
+            <h2>📍 Track Issue Status</h2>
+            <p>Check the progress of your reported issues.</p>
+            <table>
+                <tr>
+                    <th>Issue ID</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>001</td>
+                    <td>Main Street, City</td>
+                    <td>Pending</td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Park Avenue</td>
+                    <td>Resolved</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Feedback -->
+    <section id="feedback" class="feedback">
+        <div class="container">
+            <h2>💬 Submit Your Feedback</h2>
+            <p>We value your feedback. Let us know how we can improve!</p>
+            <textarea id="feedbackMessage" placeholder="Enter your feedback"></textarea>
+            <button onclick="submitFeedback()">Submit</button>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2>❓ Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <button class="faq-question">1. How do I earn Eco Points? <span class="arrow">▼</span></button>
+                <div class="faq-answer">
+                    <p>You earn Eco Points by properly classifying and recycling waste, reporting illegal dumping, and participating in community activities.</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">2. What can I do with my Eco Points? 🎁 <span class="arrow">▼</span></button>
+                <div class="faq-answer">
+                    <p>Eco Points can be redeemed for rewards, including discounts on eco-friendly products in our marketplace, donation credits to sustainability programs, or even converted into coupons for sustainable brands.</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">3. How do I report an illegal dumping issue? <span class="arrow">▼</span></button>
+                <div class="faq-answer">
+                    <p>Go to the "Report an Issue" section on your dashboard, enter the location, upload a photo, and submit it. Our system will notify the local authorities for action.</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">4. How do I upload geotagged images while reporting an issue? <span class="arrow">▼</span></button>
+                <div class="faq-answer">
+                    <p>Yes! When reporting an issue, use the "GPS Map Camera" app from the Google Play Store. Enable location access to automatically attach GPS coordinates to your captured images.</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">5. Where can I see my earned rewards? 🏆 <span class="arrow">▼</span></button>
+                <div class="faq-answer">
+                    <p>Your earned rewards and Eco Points balance are visible on the "Dashboard Overview" section. You can redeem rewards in the "Marketplace".</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">6. Can I transfer my Eco Points to another user? <span class="arrow">▼</span></button>
+                <div class="faq-answer">
+                    <p>No, currently, Eco Points are non-transferable. However, you can use them to donate to sustainability initiatives or redeem rewards in the marketplace.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 EcoFi - AI for a Clean Planet</p>
+        </div>
+    </footer>
+
+</body>
+</html>

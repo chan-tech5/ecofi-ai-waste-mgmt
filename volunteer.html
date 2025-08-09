@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoFi Volunteers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            background-color: white;
+            padding: 15px 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .logo img {
+            height: 80px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 10px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0073e6;
+        }
+
+        .container {
+            padding: 150px 50px 50px; /* Adjusted for fixed header  */
+        }
+
+        h1 {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        h1 span {
+            color: black;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .testimonial {
+            background: #e0f7fa;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 5px solid #009688;
+            font-style: italic;
+        }
+
+        .cta-section {
+            background: blue;
+            color: white;
+            padding: 50px;
+            position: relative;
+            text-align: left;
+        }
+
+        .cta-section h2 {
+            font-size: 26px;
+        }
+
+        .cta-section .cta-button {
+            background: #ff5722;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .cta-button:hover {
+            background: #e64a19;
+        }
+
+        .footer {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="logo.png" alt="EcoFi Logo">
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#cnt">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1><span>EcoFi</span> Volunteers</h1>
+        <p>EcoFi volunteers play a crucial role in transforming waste management through AI-driven solutions, community engagement, and sustainable practices. By joining our initiative, you contribute to spreading awareness, optimizing waste segregation, and promoting a circular economy. Volunteers assist in waste classification, support recycling efforts, and engage with communities to drive behavioral change. With opportunities to participate in awareness drives, tech-enabled waste tracking, and sustainable e-commerce initiatives, you help create a zero-waste future.</p>
+
+        <div class="testimonial">
+            <h2>Our Vision</h2>
+            <p>"Empowering individuals and communities through AI-driven waste management to achieve a zero-waste world."</p>
+            <p>Join us in making waste management smarter, greener, and more efficient! 🌍✨</p>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2>Are you ready to take action for a greener tomorrow?</h2>
+        <button class="cta-button" onclick="window.open('https://forms.gle/y4wSj54CWVuycmZW7', '_blank')">BECOME A VOLUNTEER</button>
+    </div>
+<section id="cnt">
+    <div id="contact" class="footer">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, feel free to reach out to us!</p>
+        <p>Email: support@ecofi.com</p>
+        <p>Phone: +91 98765 43210</p>
+    </div>
+</section>
+   
+</body>
+</html>

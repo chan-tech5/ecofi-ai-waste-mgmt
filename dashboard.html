@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EcoFi Dashboard</title>
+</head>
+<body>
+  <h2 id="tokenStatus">Checking login status...</h2>
+  <p id="userInfo"></p>
+
+  <script>
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash);
+    const idToken = params.get("id_token");
+
+    function parseJwt(token) {
+      try {
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        return JSON.parse(atob(base64));
+      } catch (e) {
+        return null;
+      }
+    }
+
+    if (idToken) {
+      //  Save token
+      localStorage.setItem("id_token", idToken);
+      document.getElementById("tokenStatus").innerText = "✅ Login Successful!";
+
+      // Optional: Show email
+      const user = parseJwt(idToken);
+      const email = user?.email || "Unknown";
+      document.getElementById("userInfo").innerText = `Logged in as: ${email}`;
+
+      // Get role and redirect
+      const userType = localStorage.getItem("userType");
+      console.log("Redirecting based on userType =", userType);
+
+      if (userType === "User") {
+        setTimeout(() => {
+          window.location.href = "user.html";
+        }, 1500);
+      } else if (userType === "Business") {
+        setTimeout(() => {
+          window.location.href = "business.html";
+        }, 1500);
+      } else {
+        document.getElementById("tokenStatus").innerText = "⚠️ Unknown userType. Please login again.";
+      }
+
+    } else {
+      document.getElementById("tokenStatus").innerText = "❌ Token not found. Login failed.";
+    }
+  </script>
+</body>
+</html>

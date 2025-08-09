@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace | EcoFi</title>
+    <style>
+        /* General Styling  */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            color: white;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: none;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header img {
+            width: 180px;
+            height: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: white;
+            color: black;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            height: 80px;
+            /* Increased logo size */
+        }
+
+        .taskbar {
+            display: flex;
+            gap: 20px;
+        }
+
+        .taskbar a {
+            color: black;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .taskbar a:hover {
+            color: #0073e6;
+        }
+
+
+        /* Filter Section */
+        .filter-container {
+            margin: 20px 0;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Products */
+        .products {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            display: block;
+        }
+
+        .product-card img {
+            width: 100%;
+            /* Ensures image fills the card width */
+            height: 200px;
+            /* Fixed height for consistency */
+            object-fit: cover;
+            /* Prevents distortion, maintains aspect ratio */
+            border-radius: 10px;
+        }
+
+
+        button {
+            background: #52b788;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #1b4332;
+        }
+
+        #bot-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            right: 50px;
+            transform: translateY(-50%);
+            display: none;
+        }
+        #bot-btn{
+            margin-left: 50px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <img src="logo.png" alt="EcoFi Marketplace Logo">
+            <nav style="display: flex;">
+                <ul>
+
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="order.html">Order</a></li>
+                    <li><a href="Account.html">Account</a></li>
+                    <li><a href="#" id="cart-link">Cart</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+                <button id="bot-btn" onclick="enablebot()">Support</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="marketplace">
+        <div class="container">
+            <h2 class="hero-text">♻️ Transforming Waste into Value – Shop Sustainably!</h2>
+
+            <!-- Filter and Sort Dropdowns -->
+            <div class="filter-container">
+                <label for="category-filter">Filter by Category:</label>
+                <select id="category-filter" onchange="filterProducts()">
+                    <option value="all">All Products</option>
+                    <option value="bags">Bags</option>
+                    <option value="notebooks">Notebooks</option>
+                    <option value="bottles">Bottles</option>
+                </select>
+
+                <label for="sort-price">Sort by Price:</label>
+                <select id="sort-price" onchange="sortProducts()">
+                    <option value="default">Default</option>
+                    <option value="low-to-high">Low to High</option>
+                    <option value="high-to-low">High to Low</option>
+                </select>
+            </div>
+
+            <!-- Product List -->
+            <div class="products">
+                <div class="product-card" data-category="bags" data-price="15">
+                    <img src="Recycled Tote Bag1.jpeg" alt="Recycled Tote Bag">
+                    <h3>Recycled Tote Bag</h3>
+                    <p>Made from upcycled plastic bottles.</p>
+                    <p><strong>Price:</strong> Rs15</p>
+                    <button onclick="addToCart('Recycled Tote Bag', 15)">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="notebooks" data-price="10">
+                    <img src="Recycled Notebook.jpeg" alt="Recycled Notebook">
+                    <h3>Recycled Notebook</h3>
+                    <p>100% eco-friendly and biodegradable.</p>
+                    <p><strong>Price:</strong> Rs10</p>
+                    <button onclick="addToCart('Recycled Notebook', 10)">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="bottles" data-price="12">
+                    <img src="Recycled Water Bottle.jpeg" alt="Recycled Water Bottle">
+                    <h3>Recycled Water Bottle</h3>
+                    <p>Reusable and BPA-free, made from recycled plastics.</p>
+                    <p><strong>Price:</strong> Rs12</p>
+                    <button onclick="addToCart('Recycled Water Bottle', 12)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart">
+        <div class="container">
+            <h2>🛒 Your Cart</h2>
+            <ul id="cart-items"></ul>
+            <p><strong>Total:</strong> Rs<span id="cart-total">0</span></p>
+            <button onclick="checkout()">Checkout</button>
+        </div>
+        <img src="./bot.avif" id="bot-img" alt="">
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 EcoFi - AI for a Cleaner Planet</p>
+        </div>
+
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function addToCart(product, price) {
+            cart.push({ product, price });
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById("cart-items");
+            const cartTotal = document.getElementById("cart-total");
+            cartItems.innerHTML = "";
+            let total = 0;
+
+            cart.forEach(item => {
+                const li = document.createElement("li");
+                li.innerText = `${item.product} - Rs${item.price}`;
+                cartItems.appendChild(li);
+                total += item.price;
+            });
+
+            cartTotal.innerText = total;
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+            alert("Thank you for your purchase! Your order has been placed.");
+            cart = [];
+            updateCart();
+        }
+
+        // Smooth Scroll to Cart Section when clicking "Cart" in Navigation
+        document.getElementById("cart-link").addEventListener("click", function (event) {
+            event.preventDefault();
+            document.querySelector(".cart").scrollIntoView({ behavior: "smooth" });
+        });
+    </script>
+</body>
+
+</html>
+
+
+<script>
+    function filterProducts() {
+        const filterValue = document.getElementById("category-filter").value;
+        const products = document.querySelectorAll(".product-card");
+
+        products.forEach(product => {
+            if (filterValue === "all" || product.getAttribute("data-category") === filterValue) {
+                product.style.display = "block";
+            } else {
+                product.style.display = "none";
+            }
+        });
+    }
+
+    function sortProducts() {
+        const sortValue = document.getElementById("sort-price").value;
+        const productContainer = document.querySelector(".products");
+        const products = Array.from(document.querySelectorAll(".product-card"));
+
+        products.sort((a, b) => {
+            const priceA = parseInt(a.getAttribute("data-price"));
+            const priceB = parseInt(b.getAttribute("data-price"));
+            return sortValue === "low-to-high" ? priceA - priceB : priceB - priceA;
+        });
+
+        productContainer.innerHTML = "";
+        products.forEach(product => productContainer.appendChild(product));
+    }
+
+
+    const bot = document.getElementById('bot-img')
+    const botbtn = document.getElementById('bot-btn')
+    function enablebot(){
+        bot.style.display='block'
+        alert('Scroll Down Kindly use our Chat Assistant to Have Some Support')
+       
+    }
+    
+</script>
+</body>
+
+</html>

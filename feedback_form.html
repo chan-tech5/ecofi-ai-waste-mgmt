@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+</head>
+<body>
+    <center>
+        <h1>Feedback Form</h1>
+        <form id="feedback-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+    <button type="submit" id="btn">Submit</button>
+</form>
+
+<script>
+document.getElementById("feedback-form").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    const payload = { name, email, message };
+
+    try {
+        const response = await fetch("https://rrz9oa6p2j.execute-api.us-east-1.amazonaws.com/prod/storeFeedbackFunction", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(payload)
+});
+
+
+        const result = await response.json();
+        alert("✅ Feedback submitted successfully!");
+    } catch (err) {
+        alert("❌ Error submitting feedback.");
+        console.error(err);
+    }
+});
+</script>
+
+    </center>
+       
+    <style>
+       input{
+        margin-top: 40px;
+        width: 70%;
+        border-radius: 10px;
+        height: 30px;
+        font-weight: bold;
+       }
+       form{
+        border: 1px solid black;
+        height: 400px;
+        width: 500px;
+        border-radius: 15px;
+        font-weight: bold;
+
+       }
+       #message{
+        border-radius: 10px;
+        font-weight: bold;
+
+
+       }
+       #btn{
+        width: 100px;
+        height: 35px;
+        border-radius: 20px;
+        background-color: rgb(29, 195, 29);
+       }
+       #btn:hover{
+        background-color: lightgreen;
+       }
+       
+    </style>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EcoFi Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: url('waste-management.webp') no-repeat center center/cover;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 12px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .tabs {
+      display: flex;
+      margin-bottom: 20px;
+      justify-content: space-between;
+    }
+
+    .tabs button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      background: #ccc;
+      color: #000;
+    }
+
+    .tabs button.active {
+      background-color: #38dd3e;
+      color: white;
+    }
+
+    .form-container {
+      display: none;
+    }
+
+    .form-container.active {
+      display: block;
+    }
+
+    .cognito-btn {
+      background: #232f3e;
+      color: white;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 8px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .cognito-btn:hover {
+      background: #1a222c;
+    }
+
+    button.cognito-btn {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login to EcoFi</h2>
+
+    <div class="tabs">
+      <button class="tab-link active" onclick="switchTab(event, 'User')">User</button>
+      <button class="tab-link" onclick="switchTab(event, 'Business')">Business</button>
+    </div>
+
+    <div id="User" class="form-container active">
+  <p>Click below to login with AWS Cognito (User Account)</p>
+  <button class="cognito-btn" onclick="redirectToCognito('User')">Login with Cognito</button>
+</div>
+
+
+    <div id="Business" class="form-container">
+  <p>Click below to login with AWS Cognito (Business Account)</p>
+  <button class="cognito-btn" onclick="redirectToCognito('Business')">Login with Cognito</button>
+</div>
+
+  <script>
+  function switchTab(evt, id) {
+    //  Save selected role when switching tab
+    localStorage.setItem("userType", id);
+    const tabs = document.getElementsByClassName('tab-link');
+    const forms = document.getElementsByClassName('form-container');
+    for (let i = 0; i < tabs.length; i++) tabs[i].classList.remove('active');
+    for (let i = 0; i < forms.length; i++) forms[i].classList.remove('active');
+    evt.currentTarget.classList.add('active');
+    document.getElementById(id).classList.add('active');
+  }
+
+  function redirectToCognito(role) {
+  localStorage.setItem("userType", role);
+  const clientId = "3igkitatvsk5rb9gvhndkkkkkh";
+  const domain = "us-east-1yxmuko9vc.auth.us-east-1.amazoncognito.com";
+  const redirect = "https://d15vq47fjndgbf.cloudfront.net/dashboard.html";
+  const url = `https://${domain}/login?client_id=${clientId}&response_type=token&scope=email+openid+phone&redirect_uri=${redirect}`;
+  window.location.href = url;
+}
+
+</script>
+
+</body>
+</html>
