@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | EcoFi - Smart Waste Management</title>
+    <link rel="icon" type="image/png" href="/static/images/logobg.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/event.css">
+</head>
+<body>
+
+<!-- Particles Canvas -->
+<canvas id="particles"></canvas>
+
+<!-- ── Navigation Bar ── -->
+<header class="header" id="navbar">
+    <div class="logo">
+        <img src="/static/images/logo-eco.svg" alt="EcoFi Logo">
+    </div>
+    <button class="hamburger" id="menu-toggle">
+        <span></span><span></span><span></span>
+    </button>
+    <nav class="taskbar" id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="donate.html">Donate</a>
+        <a href="community.html">Community</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="event.html" class="nav-active">Events</a>
+        <a href="about.html">About</a>
+        <a href="#contact">Contact</a>
+        <a href="login.html" class="nav-login">Login <i class="fas fa-arrow-right"></i></a>
+    </nav>
+</header>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<section class="event-hero">
+    <div class="event-hero-overlay"></div>
+    <div class="event-hero-content reveal">
+        <div class="hero-badge"><i class="fas fa-calendar-star"></i> Upcoming Events</div>
+        <h1>Join the <span class="gradient-text">Green Revolution</span></h1>
+        <p>Workshops, clean drives, awareness rallies & community meetups — be part of real-world impact.</p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <span class="counter" data-target="24">0</span><span class="stat-label">Events Hosted</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <span class="counter" data-target="1850">0</span><span class="stat-label">Participants</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <span class="counter" data-target="8">0</span><span class="stat-label">Cities Covered</span>
+            </div>
+        </div>
+        <a href="#events-grid" class="btn-primary"><i class="fas fa-arrow-down"></i> Explore Events</a>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     EVENT CATEGORY FILTERS
+     ═══════════════════════════════════════ -->
+<section class="filter-section" id="events-grid">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fas fa-fire"></i> What's Happening</span>
+            <h2>Upcoming <span class="gradient-text">Events</span></h2>
+            <p>Filter by category to find events that match your passion.</p>
+        </div>
+        <div class="filter-bar reveal">
+            <button class="filter-btn active" data-filter="all">
+                <i class="fas fa-border-all"></i> All
+            </button>
+            <button class="filter-btn" data-filter="awareness">
+                <i class="fas fa-bullhorn"></i> Awareness
+            </button>
+            <button class="filter-btn" data-filter="workshop">
+                <i class="fas fa-tools"></i> Workshop
+            </button>
+            <button class="filter-btn" data-filter="cleanup">
+                <i class="fas fa-broom"></i> Clean Drive
+            </button>
+            <button class="filter-btn" data-filter="community">
+                <i class="fas fa-people-group"></i> Community
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     EVENTS GRID
+     ═══════════════════════════════════════ -->
+<section class="events-section">
+    <div class="container">
+        <div class="events-grid" id="eventsGrid">
+
+            <!-- Event 1: Awareness -->
+            <div class="event-card reveal" data-category="awareness" data-delay="0">
+                <div class="event-card-top">
+                    <div class="event-badge awareness"><i class="fas fa-bullhorn"></i> Awareness</div>
+                    <div class="event-date-chip">
+                        <span class="date-day">25</span>
+                        <span class="date-month">MAR</span>
+                    </div>
+                </div>
+                <div class="event-visual awareness-gradient">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <div class="event-card-body">
+                    <h3>EcoFi Awareness Rally</h3>
+                    <p>Learn crucial steps, expert insights, and actionable strategies to launch and build your garbage-free city.</p>
+                    <div class="event-meta">
+                        <span><i class="fas fa-clock"></i> 10:00 AM – 12:00 PM</span>
+                        <span><i class="fas fa-map-marker-alt"></i> No.32, OMR, Chennai</span>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-spots">
+                            <div class="spots-bar"><div class="spots-fill" style="width:65%"></div></div>
+                            <span>35 spots left</span>
+                        </div>
+                        <button class="register-btn" data-event="ecofi-awareness-rally" data-title="EcoFi Awareness Rally">
+                            <i class="fas fa-ticket"></i> Register
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 2: Workshop -->
+            <div class="event-card reveal" data-category="workshop" data-delay="100">
+                <div class="event-card-top">
+                    <div class="event-badge workshop"><i class="fas fa-tools"></i> Workshop</div>
+                    <div class="event-date-chip">
+                        <span class="date-day">05</span>
+                        <span class="date-month">APR</span>
+                    </div>
+                </div>
+                <div class="event-visual workshop-gradient">
+                    <i class="fas fa-recycle"></i>
+                </div>
+                <div class="event-card-body">
+                    <h3>DIY Composting Workshop</h3>
+                    <p>Hands-on session on building your own home composting setup. Learn vermicomposting, bokashi method & more.</p>
+                    <div class="event-meta">
+                        <span><i class="fas fa-clock"></i> 2:00 PM – 5:00 PM</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Green Hub, Adyar, Chennai</span>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-spots">
+                            <div class="spots-bar"><div class="spots-fill" style="width:40%"></div></div>
+                            <span>60 spots left</span>
+                        </div>
+                        <button class="register-btn" data-event="diy-composting-workshop" data-title="DIY Composting Workshop">
+                            <i class="fas fa-ticket"></i> Register
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 3: Clean Drive -->
+            <div class="event-card reveal" data-category="cleanup" data-delay="200">
+                <div class="event-card-top">
+                    <div class="event-badge cleanup"><i class="fas fa-broom"></i> Clean Drive</div>
+                    <div class="event-date-chip">
+                        <span class="date-day">12</span>
+                        <span class="date-month">APR</span>
+                    </div>
+                </div>
+                <div class="event-visual cleanup-gradient">
+                    <i class="fas fa-water"></i>
+                </div>
+                <div class="event-card-body">
+                    <h3>Marina Beach Cleanup</h3>
+                    <p>Join 200+ volunteers for a massive beach cleanup drive. Gloves, bags & refreshments provided. Earn 50 eco-coins!</p>
+                    <div class="event-meta">
+                        <span><i class="fas fa-clock"></i> 6:00 AM – 9:00 AM</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Marina Beach, Chennai</span>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-spots">
+                            <div class="spots-bar"><div class="spots-fill" style="width:80%"></div></div>
+                            <span>20 spots left</span>
+                        </div>
+                        <button class="register-btn" data-event="marina-beach-cleanup" data-title="Marina Beach Cleanup">
+                            <i class="fas fa-ticket"></i> Register
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 4: Community -->
+            <div class="event-card reveal" data-category="community" data-delay="0">
+                <div class="event-card-top">
+                    <div class="event-badge community"><i class="fas fa-people-group"></i> Community</div>
+                    <div class="event-date-chip">
+                        <span class="date-day">20</span>
+                        <span class="date-month">APR</span>
+                    </div>
+                </div>
+                <div class="event-visual community-gradient">
+                    <i class="fas fa-handshake-angle"></i>
+                </div>
+                <div class="event-card-body">
+                    <h3>EcoFi Community Meetup</h3>
+                    <p>Monthly meetup for eco-warriors! Share your journey, network with leaders, and plan next month's campaigns together.</p>
+                    <div class="event-meta">
+                        <span><i class="fas fa-clock"></i> 4:00 PM – 6:30 PM</span>
+                        <span><i class="fas fa-map-marker-alt"></i> IIT-M Research Park, Chennai</span>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-spots">
+                            <div class="spots-bar"><div class="spots-fill" style="width:30%"></div></div>
+                            <span>70 spots left</span>
+                        </div>
+                        <button class="register-btn" data-event="ecofi-community-meetup" data-title="EcoFi Community Meetup">
+                            <i class="fas fa-ticket"></i> Register
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 5: Workshop -->
+            <div class="event-card reveal" data-category="workshop" data-delay="100">
+                <div class="event-card-top">
+                    <div class="event-badge workshop"><i class="fas fa-tools"></i> Workshop</div>
+                    <div class="event-date-chip">
+                        <span class="date-day">28</span>
+                        <span class="date-month">APR</span>
+                    </div>
+                </div>
+                <div class="event-visual workshop-gradient">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="event-card-body">
+                    <h3>AI Waste Classification Hackathon</h3>
+                    <p>24-hour hackathon: build ML models for waste classification. Prizes worth ₹50K, mentorship, and internships!</p>
+                    <div class="event-meta">
+                        <span><i class="fas fa-clock"></i> 9:00 AM – Next Day 9 AM</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Virtual + SRM Campus</span>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-spots">
+                            <div class="spots-bar"><div class="spots-fill" style="width:55%"></div></div>
+                            <span>45 spots left</span>
+                        </div>
+                        <button class="register-btn" data-event="ai-waste-hackathon" data-title="AI Waste Classification Hackathon">
+                            <i class="fas fa-ticket"></i> Register
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 6: Awareness -->
+            <div class="event-card reveal" data-category="awareness" data-delay="200">
+                <div class="event-card-top">
+                    <div class="event-badge awareness"><i class="fas fa-bullhorn"></i> Awareness</div>
+                    <div class="event-date-chip">
+                        <span class="date-day">05</span>
+                        <span class="date-month">MAY</span>
+                    </div>
+                </div>
+                <div class="event-visual awareness-gradient">
+                    <i class="fas fa-school"></i>
+                </div>
+                <div class="event-card-body">
+                    <h3>School Eco-Education Program</h3>
+                    <p>Taking waste management education to 10 schools in South Chennai. Interactive kits, quizzes & eco-pledge for students.</p>
+                    <div class="event-meta">
+                        <span><i class="fas fa-clock"></i> 9:00 AM – 1:00 PM</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Multiple Schools, Chennai</span>
+                    </div>
+                    <div class="event-footer">
+                        <div class="event-spots">
+                            <div class="spots-bar"><div class="spots-fill" style="width:20%"></div></div>
+                            <span>80 spots left</span>
+                        </div>
+                        <button class="register-btn" data-event="school-eco-education" data-title="School Eco-Education Program">
+                            <i class="fas fa-ticket"></i> Register
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- No Results Message -->
+        <div class="no-events" id="noEvents" style="display:none">
+            <i class="fas fa-calendar-xmark"></i>
+            <h3>No events in this category yet</h3>
+            <p>Check back soon — we're always planning new events!</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     HOW IT WORKS – Event Timeline
+     ═══════════════════════════════════════ -->
+<section class="timeline-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fas fa-route"></i> How It Works</span>
+            <h2>Your Event <span class="gradient-text">Journey</span></h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item reveal" data-delay="0">
+                <div class="timeline-dot"><span>1</span></div>
+                <div class="timeline-card">
+                    <div class="tl-icon"><i class="fas fa-search"></i></div>
+                    <h4>Discover</h4>
+                    <p>Browse upcoming events and pick what excites you</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal" data-delay="120">
+                <div class="timeline-dot"><span>2</span></div>
+                <div class="timeline-card">
+                    <div class="tl-icon"><i class="fas fa-user-plus"></i></div>
+                    <h4>Register</h4>
+                    <p>Quick registration — just name, email & phone</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal" data-delay="240">
+                <div class="timeline-dot"><span>3</span></div>
+                <div class="timeline-card">
+                    <div class="tl-icon"><i class="fas fa-bell"></i></div>
+                    <h4>Get Notified</h4>
+                    <p>Receive reminders & event details via email</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal" data-delay="360">
+                <div class="timeline-dot"><span>4</span></div>
+                <div class="timeline-card">
+                    <div class="tl-icon"><i class="fas fa-coins"></i></div>
+                    <h4>Earn Rewards</h4>
+                    <p>Attend events, take actions & earn eco-coins</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PAST EVENT HIGHLIGHTS
+     ═══════════════════════════════════════ -->
+<section class="highlights-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fas fa-camera"></i> Highlights</span>
+            <h2>Past Event <span class="gradient-text">Moments</span></h2>
+        </div>
+        <div class="highlights-grid">
+            <div class="highlight-card reveal" data-delay="0">
+                <div class="highlight-icon"><i class="fas fa-umbrella-beach"></i></div>
+                <h4>Beach Cleanup Jan '26</h4>
+                <div class="highlight-stats">
+                    <span><i class="fas fa-users"></i> 180 volunteers</span>
+                    <span><i class="fas fa-trash"></i> 450 kg collected</span>
+                </div>
+                <p>"The most inspiring morning of my life! Seeing 180 people unite for the ocean was magical." — Priya R.</p>
+            </div>
+            <div class="highlight-card reveal" data-delay="100">
+                <div class="highlight-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <h4>Composting Workshop Feb '26</h4>
+                <div class="highlight-stats">
+                    <span><i class="fas fa-users"></i> 75 attendees</span>
+                    <span><i class="fas fa-leaf"></i> 40 units built</span>
+                </div>
+                <p>"I built my own compost bin in 2 hours. Now my kitchen waste goes back to earth!" — Karthik S.</p>
+            </div>
+            <div class="highlight-card reveal" data-delay="200">
+                <div class="highlight-icon"><i class="fas fa-school"></i></div>
+                <h4>School Program Jan '26</h4>
+                <div class="highlight-stats">
+                    <span><i class="fas fa-users"></i> 500 students</span>
+                    <span><i class="fas fa-graduation-cap"></i> 5 schools</span>
+                </div>
+                <p>"The kids were so excited about the AI waste scanner! They pledged to keep their school clean." — Mrs. Devi</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     HOST YOUR OWN EVENT – CTA
+     ═══════════════════════════════════════ -->
+<section class="host-section">
+    <div class="container">
+        <div class="host-card reveal">
+            <div class="host-bg"></div>
+            <div class="host-content">
+                <div class="host-icon"><i class="fas fa-rocket"></i></div>
+                <h2>Want to <span class="gradient-text-light">Host an Event?</span></h2>
+                <p>Have an idea for a cleanup drive, workshop, or awareness campaign? We'll help you organize, promote, and make it happen. Earn 100 eco-coins for every event you host!</p>
+                <a href="mailto:events@ecofi.in?subject=I want to host an EcoFi event" class="btn-primary">
+                    <i class="fas fa-paper-plane"></i> Propose an Event
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     REGISTRATION MODAL
+     ═══════════════════════════════════════ -->
+<div class="modal-overlay" id="register-modal">
+    <div class="modal-card register-modal-card">
+        <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
+        <div class="modal-header">
+            <div class="modal-badge"><i class="fas fa-ticket"></i></div>
+            <h2>Register for Event</h2>
+            <p id="modal-event-name" class="modal-event-title"></p>
+        </div>
+        <form id="register-form">
+            <input type="hidden" id="reg-event-id" value="">
+            <input type="hidden" id="reg-event-title" value="">
+            <div class="form-row">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="reg-name" placeholder="Your full name" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="reg-email" placeholder="you@example.com" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label><i class="fas fa-phone"></i> Phone</label>
+                    <input type="tel" id="reg-phone" placeholder="+91 XXXXX XXXXX" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-users"></i> Team Size</label>
+                    <select id="reg-team">
+                        <option value="1">Just Me (1)</option>
+                        <option value="2">2 People</option>
+                        <option value="3">3 People</option>
+                        <option value="4">4 People</option>
+                        <option value="5">5+ People</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-comment"></i> Anything we should know?</label>
+                <textarea id="reg-note" rows="2" placeholder="Dietary needs, accessibility requirements, etc. (optional)"></textarea>
+            </div>
+            <button type="submit" class="submit-btn" id="reg-submit-btn">
+                <i class="fas fa-check-circle"></i> Confirm Registration
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SUCCESS MODAL
+     ═══════════════════════════════════════ -->
+<div class="modal-overlay" id="success-modal">
+    <div class="modal-card success-modal-card">
+        <div class="success-check">
+            <svg viewBox="0 0 52 52">
+                <circle cx="26" cy="26" r="25" fill="none" stroke="#00c853" stroke-width="2"/>
+                <path fill="none" stroke="#00c853" stroke-width="3" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+        </div>
+        <h2>You're Registered! 🎉</h2>
+        <p id="success-message">Check your email for event details and reminders.</p>
+        <div class="success-details" id="success-details"></div>
+        <button class="btn-primary" onclick="document.getElementById('success-modal').classList.remove('show')">
+            <i class="fas fa-thumbs-up"></i> Awesome!
+        </button>
+    </div>
+</div>
+
+<!-- ── Footer ── -->
+<footer id="contact">
+    <div class="footer-wave">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,60 1440,60 L1440,120 L0,120 Z" fill="currentColor"/>
+        </svg>
+    </div>
+    <div class="footer-content">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/static/images/logo-eco.svg" alt="EcoFi" class="footer-logo">
+                    <p>AI-powered waste management for a sustainable tomorrow.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="community.html">Community</a>
+                    <a href="marketplace.html">Marketplace</a>
+                    <a href="event.html">Events</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Platform</h4>
+                    <a href="login.html">Login</a>
+                    <a href="donate.html">Donate</a>
+                    <a href="volunteer.html">Volunteer</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 4/15, St.Josephs Street, OMR, Chennai - 600 017</p>
+                    <p><i class="fas fa-phone"></i> +91 8248936485</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@ecofi.in">info@ecofi.in</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 <strong>EcoFi</strong>. All rights reserved. Powered by <strong>SR</strong>.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="/static/js/event.js"></script>
+
+</body>
+</html>

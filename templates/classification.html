@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Waste Classification | EcoFi</title>
+    <link rel="icon" type="image/png" href="/static/images/logobg.jpg">
+    <!-- Inherit Main Theme -->
+    <link rel="stylesheet" href="/static/css/styles1.css">
+    <!-- Component Specific Dashboard Theme -->
+    <link rel="stylesheet" href="/static/css/user-dashboard.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 120px 20px 40px;
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── Floating Particles Canvas ── -->
+    <canvas id="particles"></canvas>
+
+    <!-- ── Navigation Bar ── -->
+    <header class="header" id="navbar">
+        <div class="logo">
+            <img src="/static/images/logo-eco.svg" alt="EcoFi Logo">
+        </div>
+        <button class="hamburger" id="menu-toggle">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="taskbar" id="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="business.html">Business Dashboard</a>
+            <a href="classification.html" class="nav-active">AI Classify Tool</a>
+            <a href="login.html" class="nav-login" onclick="localStorage.removeItem('id_token')">Logout <i class="fas fa-sign-out-alt"></i></a>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="glass-panel" style="max-width: 500px; width: 100%; text-align: center; margin-bottom: 0;">
+            <div style="font-size: 40px; color: #00c853; margin-bottom: 15px;">
+                <i class="fas fa-brain"></i>
+            </div>
+            
+            <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; color: #ffffff; margin-bottom: 10px;">
+                AI Waste Classification
+            </h2>
+            <p style="color: #94a3b8; font-size: 15px; margin-bottom: 30px;">
+                Upload a photo of any waste item. Our AI instantly analyzes it and identifies the exact category and disposal method.
+            </p>
+
+            <div class="form-group" style="text-align: center; margin-bottom: 25px;">
+                <!-- Image Preview -->
+                <div id="imagePreview" class="preview-container">
+                    <img src="" alt="Waste Preview">
+                </div>
+
+                <label for="imageUpload" style="display: block; cursor: pointer; background: rgba(0, 0, 0, 0.4); border: 2px dashed rgba(0, 200, 83, 0.4); border-radius: 12px; padding: 30px; transition: all 0.3s ease;">
+                    <i class="fas fa-cloud-upload-alt" style="font-size: 32px; color: #00c853; margin-bottom: 10px;"></i><br>
+                    <span style="color: #cbd5e1; font-weight: 500;">Click to choose an image</span>
+                    <input type="file" id="imageUpload" style="display: none;" accept="image/*">
+                </label>
+                <p id="file-name" style="margin-top: 10px; font-size: 13px; color: #00c853; display: none;"></p>
+            </div>
+
+            <button class="btn-submit" onclick="classifyWaste()" style="width: 100%;">
+                <i class="fas fa-magic"></i> Classify Waste
+            </button>
+            
+            <div id="classificationResult" style="margin-top: 25px; font-size: 18px; font-weight: 600; font-family: 'Space Grotesk', sans-serif;"></div>
+
+            <!-- Insights Panel -->
+            <div id="insightsPanel" class="result-insights">
+                <div id="categoryBadge" class="insight-badge"></div>
+                <div class="insight-card">
+                    <h4><i class="fas fa-info-circle"></i> Disposal Insights</h4>
+                    <p id="handlingInstructions"></p>
+                </div>
+                <div class="insight-actions">
+                    <a href="marketplace.html" class="btn-small btn-small-outline">Explore Marketplace</a>
+                    <a href="community.html" class="btn-small btn-submit">Join Community</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Global Footer ── -->
+    <footer id="contact">
+        <div class="footer-wave" style="margin-top: 0">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,60 1440,60 L1440,120 L0,120 Z" fill="currentColor"/>
+            </svg>
+        </div>
+        <div class="footer-content">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <img src="/static/images/logo-eco.svg" alt="EcoFi" class="footer-logo">
+                        <p>AI-powered waste management for a sustainable tomorrow.</p>
+                        <div class="footer-socials">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <a href="index.html">Home</a>
+                        <a href="community.html">Community</a>
+                        <a href="marketplace.html">Marketplace</a>
+                        <a href="event.html">Events</a>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Platform</h4>
+                        <a href="login.html">Login</a>
+                        <a href="donate.html">Donate</a>
+                        <a href="volunteer.html">Volunteer</a>
+                        <a href="#">Privacy Policy</a>
+                    </div>
+                    <div class="footer-contact">
+                        <h4>Contact Us</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> 4/15, St.Josephs Street, OMR, Chennai - 600 017</p>
+                        <p><i class="fas fa-phone"></i> +91 8248936485</p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:info@ecofi.in">info@ecofi.in</a></p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 <strong>EcoFi</strong>. All rights reserved. Powered by <strong>SR</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Essential logic -->
+    <script src="/static/js/script.js"></script>
+    <script src="/static/js/home-animations.js"></script>
+    <script>
+        // UX improvement: show the filename when an image is selected
+        document.getElementById('imageUpload').addEventListener('change', function(e) {
+            const fileNameDisplay = document.getElementById('file-name');
+            if (this.files && this.files.length > 0) {
+                fileNameDisplay.textContent = "Selected: " + this.files[0].name;
+                fileNameDisplay.style.display = "block";
+            } else {
+                fileNameDisplay.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

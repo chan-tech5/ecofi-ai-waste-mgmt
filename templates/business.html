@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Dashboard | EcoFi</title>
+    <link rel="icon" type="image/png" href="/static/images/logobg.jpg">
+    <!-- Inherit Main Theme -->
+    <link rel="stylesheet" href="/static/css/styles1.css">
+    <!-- Component Specific Dashboard Theme -->
+    <link rel="stylesheet" href="/static/css/user-dashboard.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=b1fab2921c2a4edaa6f80559232412&callback=initMap" async defer></script>
+</head>
+<body>
+    <!-- ── SECURITY GUARD (Cognito Session Check) ── -->
+    <script>
+        (function() {
+            const token = localStorage.getItem("id_token");
+            if (!token) {
+                console.warn("🔐 Access Denied: No valid session found. Redirecting to login...");
+                window.location.href = "/login.html?auth=required";
+            }
+        })();
+    </script>
+
+    <!-- ── Floating Particles Canvas ── -->
+    <canvas id="particles"></canvas>
+
+    <!-- ── Navigation Bar ── -->
+    <header class="header" id="navbar">
+        <div class="logo">
+            <img src="/static/images/logo-eco.svg" alt="EcoFi Logo">
+        </div>
+        <button class="hamburger" id="menu-toggle">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="taskbar" id="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="#overview" class="nav-active">Overview</a>
+            <a href="#analytics">Analytics</a>
+            <a href="#mapping">Live Map</a>
+            <a href="classification.html">AI Classify Tool</a>
+            <a href="login.html" class="nav-login" onclick="logout()">Logout <i class="fas fa-sign-out-alt"></i></a>
+        </nav>
+    </header>
+
+    <!-- ── Hero Banner ── -->
+    <section class="dashboard-hero">
+        <h2>Welcome back, <span class="gradient-text">Corporate Partner</span>! 👋</h2>
+        <p>Your centralized hub for ESG compliance, waste analytics, and logistics.</p>
+    </section>
+
+    <!-- ── Dashboard Container ── -->
+    <div class="container" style="position: relative; z-index: 10;">
+        
+        <!-- Dashboard Overview -->
+        <section id="overview" class="glass-panel">
+            <h3 class="section-title"><i class="fas fa-chart-pie"></i> Operations Overview</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-exclamation-circle" style="color: #FFC107;"></i></div>
+                    <h3>Total Issues Reported</h3>
+                    <p id="total-issues">120</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-check-circle" style="color: #00c853;"></i></div>
+                    <h3>Solved Issues</h3>
+                    <p id="solved-issues">80</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-spinner" style="color: #2196F3;"></i></div>
+                    <h3>In Progress</h3>
+                    <p id="in-progress">40</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Statistics -->
+        <section class="glass-panel">
+            <h3 class="section-title"><i class="fas fa-users"></i> Enterprise Network & Reach</h3>
+            <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Customers Served</h3>
+                    <p>10,000+</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-star" style="color: #FFC107;"></i></div>
+                    <h3>Client Satisfaction</h3>
+                    <p>97%</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-award" style="color: #00c853;"></i></div>
+                    <h3>Years of Excellence</h3>
+                    <p>30+</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="charts-grid">
+            <!-- Meetings -->
+            <section class="glass-panel">
+                <h3 class="section-title"><i class="fas fa-calendar-alt"></i> Upcoming Meetings</h3>
+                <div class="faq-grid">
+                    <div class="faq-item" style="padding: 15px 20px; border-left: 4px solid #00c853; background: rgba(0, 200, 83, 0.05); color: #ffffff;">
+                        <strong>5th March</strong> &mdash; City council meeting on waste regulation
+                    </div>
+                    <div class="faq-item" style="padding: 15px 20px; border-left: 4px solid #2196F3; background: rgba(33, 150, 243, 0.05); color: #ffffff;">
+                        <strong>10th March</strong> &mdash; Business sustainability summit
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Reported Data Text -->
+            <section class="glass-panel">
+                <h3 class="section-title"><i class="fas fa-file-alt"></i> Reported Waste Logs</h3>
+                <p style="color: #cbd5e1; line-height: 1.6;">
+                    View detailed analytics on corporate waste disposal, ESG tracking reports, and historical compliance data. Generate detailed CSV exports via the admin portal to satisfy local municipal documentation requirements.
+                </p>
+                <button class="btn-submit" style="margin-top: 15px;">
+                    <i class="fas fa-download"></i> Download Report Logs
+                </button>
+            </section>
+        </div>
+
+        <!-- Waste Analytics Chart -->
+        <section id="analytics" class="glass-panel">
+            <h3 class="section-title"><i class="fas fa-chart-bar"></i> Corporate Waste Analytics</h3>
+            <div class="chart-wrapper">
+                <canvas id="businessWasteChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Mapping & Classification -->
+        <section id="mapping" class="glass-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                <h3 class="section-title" style="margin-bottom: 0;"><i class="fas fa-map-marked-alt"></i> Fleet Tracking & AI Classification</h3>
+                <a href="classification.html" class="btn-submit">
+                    <i class="fas fa-brain"></i> AI Classify Tool
+                </a>
+            </div>
+            
+            <p style="color: #94a3b8; margin-bottom: 20px;">Live feed tracking waste collection vehicles routing data and geo-tagged dump reports.</p>
+            
+            <div style="width: 100%; height: 400px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <div id="map" style="width: 100%; height: 100%;"></div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ── Footer ── -->
+    <footer id="contact">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,60 1440,60 L1440,120 L0,120 Z" fill="currentColor"/>
+            </svg>
+        </div>
+        <div class="footer-content">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <img src="/static/images/logo-eco.svg" alt="EcoFi" class="footer-logo">
+                        <p>AI-powered waste management for a sustainable tomorrow.</p>
+                        <div class="footer-socials">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <a href="index.html">Home</a>
+                        <a href="community.html">Community</a>
+                        <a href="marketplace.html">Marketplace</a>
+                        <a href="event.html">Events</a>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Platform</h4>
+                        <a href="login.html">Login</a>
+                        <a href="donate.html">Donate</a>
+                        <a href="volunteer.html">Volunteer</a>
+                        <a href="#">Privacy Policy</a>
+                    </div>
+                    <div class="footer-contact">
+                        <h4>Contact Us</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> 4/15, St.Josephs Street, OMR, Chennai - 600 017</p>
+                        <p><i class="fas fa-phone"></i> +91 8248936485</p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:info@ecofi.in">info@ecofi.in</a></p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 <strong>EcoFi</strong>. All rights reserved. Powered by <strong>SR</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ── Scripts ── -->
+    <!-- Essential Animations & Particles -->
+    <script src="/static/js/script.js"></script>
+    <script src="/static/js/home-animations.js"></script>
+
+    <!-- Specific Scripts for Business -->
+    <script>
+        function logout() {
+            localStorage.removeItem('id_token');
+            localStorage.removeItem('userType');
+        }
+
+        // Global Chart Defaults for Dark Theme Readability
+        Chart.defaults.color = '#cbd5e1';
+        Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
+
+        var ctx = document.getElementById('businessWasteChart');
+        if (ctx) {
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Plastic', 'Organic', 'E-Waste', 'Metal', 'Paper'],
+                    datasets: [{
+                        label: 'Waste Categories (Tons)',
+                        data: [30, 50, 20, 10, 40],
+                        // Upgraded to premium bright gradients/colors matching the theme
+                        backgroundColor: ['#F44336', '#00c853', '#2196F3', '#FFC107', '#9C27B0'],
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { labels: { font: { family: 'Inter' } } }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        }
+
+        function initMap() {
+            var mapElement = document.getElementById('map');
+            if (mapElement) {
+                var map = new google.maps.Map(mapElement, {
+                    center: { lat: 40.7128, lng: -74.0060 }, 
+                    zoom: 12,
+                    // Inject basic dark styles if wanted, but standard maps are fine
+                    styles: [
+                        { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+                        { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+                        { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+                        {
+                            featureType: "road",
+                            elementType: "geometry",
+                            stylers: [{ color: "#38414e" }]
+                        },
+                    ]
+                });
+
+                var marker = new google.maps.Marker({
+                    position: { lat: 40.73061, lng: -73.935242 },
+                    map: map,
+                    title: "Waste Collection Vehicle"
+                });
+            }
+        }
+    </script>
+</body>
+</html>

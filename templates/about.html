@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About EcoFi | Smart Waste Management</title>
+    <link rel="icon" type="image/png" href="/static/images/logobg.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/about.css">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- ── Navbar ── -->
+<header class="header" id="navbar">
+    <div class="logo">
+        <img src="/static/images/logo-eco.svg" alt="EcoFi Logo">
+    </div>
+    <button class="hamburger" id="menu-toggle">
+        <span></span><span></span><span></span>
+    </button>
+    <nav class="taskbar" id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="donate.html">Donate</a>
+        <a href="community.html">Community</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="event.html">Events</a>
+        <a href="about.html" class="nav-active">About</a>
+        <a href="#contact">Contact</a>
+        <a href="login.html" class="nav-login">Login <i class="fas fa-arrow-right"></i></a>
+    </nav>
+</header>
+
+<!-- ═══════════════════════════════════════
+     HERO — WHO WE ARE
+     ═══════════════════════════════════════ -->
+<section class="about-hero">
+    <div class="about-hero-overlay"></div>
+    <div class="about-hero-content reveal">
+        <div class="hero-badge"><i class="fas fa-seedling"></i> About EcoFi</div>
+        <h1>Turning <span class="gradient-text">Waste</span> into <span class="gradient-text">Worth</span></h1>
+        <p>We're building India's most intelligent waste management ecosystem — where AI, community, and sustainability converge to create a cleaner tomorrow.</p>
+        <div class="hero-scroll-hint">
+            <span>Scroll to explore</span>
+            <div class="scroll-line"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     STORY TIMELINE
+     ═══════════════════════════════════════ -->
+<section class="story-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-tag"><i class="fas fa-book-open"></i> Our Story</div>
+            <h2>The Journey of <span class="gradient-text">EcoFi</span></h2>
+            <p>From a simple idea to a movement that's reshaping waste management across India.</p>
+        </div>
+
+        <div class="story-timeline">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"><i class="fas fa-lightbulb"></i></div>
+                <div class="timeline-card">
+                    <span class="timeline-year">The Beginning</span>
+                    <h3>The Idea Sparked</h3>
+                    <p>Walking through streets lined with overflowing bins and unsorted waste, we asked ourselves — <em>"What if technology could solve this?"</em> That question became EcoFi.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"><i class="fas fa-robot"></i></div>
+                <div class="timeline-card">
+                    <span class="timeline-year">AI Integration</span>
+                    <h3>Smart Classification</h3>
+                    <p>We built an AI-powered waste classification system that identifies recyclable, organic, and hazardous waste with a single photo — making sorting effortless for everyone.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"><i class="fas fa-users"></i></div>
+                <div class="timeline-card">
+                    <span class="timeline-year">Community First</span>
+                    <h3>Building the Movement</h3>
+                    <p>EcoFi grew beyond tech — volunteers, donors, community drives, and awareness events created a network of eco-warriors dedicated to Swachh Bharat.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"><i class="fas fa-rocket"></i></div>
+                <div class="timeline-card">
+                    <span class="timeline-year">Today & Beyond</span>
+                    <h3>Scaling Impact</h3>
+                    <p>With EcoCoins, a green marketplace, event organizing, and real-time waste tracking — we're now a complete ecosystem for sustainable living.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     MISSION & VISION
+     ═══════════════════════════════════════ -->
+<section class="mv-section">
+    <div class="container">
+        <div class="mv-grid">
+            <div class="mv-card mission reveal">
+                <div class="mv-icon-wrap">
+                    <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
+                    <div class="mv-glow"></div>
+                </div>
+                <h3>Our Mission</h3>
+                <p>To empower every individual, household, and community in India with AI-driven tools and incentives that make proper waste management easy, rewarding, and impactful.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Make waste sorting as simple as snapping a photo</li>
+                    <li><i class="fas fa-check-circle"></i> Reward eco-conscious behavior with EcoCoins</li>
+                    <li><i class="fas fa-check-circle"></i> Connect communities for collective clean-up action</li>
+                    <li><i class="fas fa-check-circle"></i> Reduce landfill waste by 40% in target areas</li>
+                </ul>
+            </div>
+
+            <div class="mv-card vision reveal">
+                <div class="mv-icon-wrap">
+                    <div class="mv-icon"><i class="fas fa-eye"></i></div>
+                    <div class="mv-glow"></div>
+                </div>
+                <h3>Our Vision</h3>
+                <p>A zero-waste India where technology bridges the gap between intention and action — where every citizen is an active participant in building a circular economy.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> AI-optimized collection routes in every city</li>
+                    <li><i class="fas fa-check-circle"></i> 100% recyclable product ecosystem</li>
+                    <li><i class="fas fa-check-circle"></i> Carbon-negative operations by 2030</li>
+                    <li><i class="fas fa-check-circle"></i> India's largest eco-conscious community</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     WHAT WE DO — PILLARS
+     ═══════════════════════════════════════ -->
+<section class="pillars-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-tag"><i class="fas fa-cubes"></i> What We Do</div>
+            <h2>The Four Pillars of <span class="gradient-text">EcoFi</span></h2>
+        </div>
+
+        <div class="pillars-grid">
+            <div class="pillar-card reveal">
+                <div class="pillar-num">01</div>
+                <div class="pillar-icon"><i class="fas fa-brain"></i></div>
+                <h4>AI Waste Classification</h4>
+                <p>Upload a photo of any waste item and our trained AI model instantly classifies it — telling you exactly how to dispose of it responsibly.</p>
+            </div>
+            <div class="pillar-card reveal">
+                <div class="pillar-num">02</div>
+                <div class="pillar-icon"><i class="fas fa-coins"></i></div>
+                <h4>EcoCoin Rewards</h4>
+                <p>Every eco-action earns EcoCoins — from sorting waste and volunteering to attending cleanup events. Redeem them for products in our green marketplace.</p>
+            </div>
+            <div class="pillar-card reveal">
+                <div class="pillar-num">03</div>
+                <div class="pillar-icon"><i class="fas fa-store"></i></div>
+                <h4>Green Marketplace</h4>
+                <p>Shop products made entirely from recycled materials. Every purchase supports waste-to-product businesses and fuels a circular economy.</p>
+            </div>
+            <div class="pillar-card reveal">
+                <div class="pillar-num">04</div>
+                <div class="pillar-icon"><i class="fas fa-hands-helping"></i></div>
+                <h4>Community & Events</h4>
+                <p>Organize or join cleanup drives, awareness rallies, and workshops. Build your local eco-network and compete on the green leaderboard.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     IMPACT NUMBERS
+     ═══════════════════════════════════════ -->
+<section class="impact-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-tag"><i class="fas fa-chart-line"></i> Our Impact</div>
+            <h2>Numbers That <span class="gradient-text">Matter</span></h2>
+        </div>
+
+        <div class="impact-grid">
+            <div class="impact-card reveal">
+                <div class="impact-ring">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="42" stroke="rgba(255,255,255,0.06)" stroke-width="6" fill="none"/>
+                        <circle cx="50" cy="50" r="42" stroke="url(#grad1)" stroke-width="6" fill="none" stroke-dasharray="264" stroke-dashoffset="66" stroke-linecap="round" class="progress-ring"/>
+                        <defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00c853"/><stop offset="100%" stop-color="#00e5ff"/></linearGradient></defs>
+                    </svg>
+                    <div class="impact-value"><span class="counter" data-target="12500">0</span>+</div>
+                </div>
+                <h4>Tonnes Recycled</h4>
+                <p>Waste diverted from landfills through our community programs</p>
+            </div>
+
+            <div class="impact-card reveal">
+                <div class="impact-ring">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="42" stroke="rgba(255,255,255,0.06)" stroke-width="6" fill="none"/>
+                        <circle cx="50" cy="50" r="42" stroke="url(#grad2)" stroke-width="6" fill="none" stroke-dasharray="264" stroke-dashoffset="92" stroke-linecap="round" class="progress-ring"/>
+                        <defs><linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00e5ff"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs>
+                    </svg>
+                    <div class="impact-value"><span class="counter" data-target="8500">0</span>+</div>
+                </div>
+                <h4>Active Users</h4>
+                <p>Eco-warriors using EcoFi for smarter waste management</p>
+            </div>
+
+            <div class="impact-card reveal">
+                <div class="impact-ring">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="42" stroke="rgba(255,255,255,0.06)" stroke-width="6" fill="none"/>
+                        <circle cx="50" cy="50" r="42" stroke="url(#grad3)" stroke-width="6" fill="none" stroke-dasharray="264" stroke-dashoffset="132" stroke-linecap="round" class="progress-ring"/>
+                        <defs><linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#ef4444"/></linearGradient></defs>
+                    </svg>
+                    <div class="impact-value"><span class="counter" data-target="24">0</span></div>
+                </div>
+                <h4>Events Hosted</h4>
+                <p>Cleanup drives, workshops, and awareness campaigns</p>
+            </div>
+
+            <div class="impact-card reveal">
+                <div class="impact-ring">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="42" stroke="rgba(255,255,255,0.06)" stroke-width="6" fill="none"/>
+                        <circle cx="50" cy="50" r="42" stroke="url(#grad4)" stroke-width="6" fill="none" stroke-dasharray="264" stroke-dashoffset="53" stroke-linecap="round" class="progress-ring"/>
+                        <defs><linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00c853"/><stop offset="100%" stop-color="#10b981"/></linearGradient></defs>
+                    </svg>
+                    <div class="impact-value"><span class="counter" data-target="8">0</span></div>
+                </div>
+                <h4>Cities Covered</h4>
+                <p>And expanding across India, one city at a time</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CORE VALUES — Interactive Orbit
+     ═══════════════════════════════════════ -->
+<section class="values-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-tag"><i class="fas fa-heart"></i> Core Values</div>
+            <h2>What Drives <span class="gradient-text">Us</span></h2>
+            <p>Click on any value to discover how it shapes EcoFi.</p>
+        </div>
+
+        <div class="values-interactive reveal">
+            <!-- Left: Detail Panel -->
+            <div class="value-detail-panel" id="valueDetailPanel">
+                <div class="value-detail-empty">
+                    <i class="fas fa-hand-pointer"></i>
+                    <p>Click a value to learn more</p>
+                </div>
+                <div class="value-detail-content" id="valueDetailContent" style="display:none;">
+                    <div class="detail-header">
+                        <div class="detail-icon" id="detailIcon"><i class="fas fa-globe-asia"></i></div>
+                        <div>
+                            <h3 id="detailTitle">Sustainability</h3>
+                            <span class="detail-tag" id="detailTag">Core Value</span>
+                        </div>
+                    </div>
+                    <div class="detail-divider"></div>
+                    <div class="detail-question">
+                        <i class="fas fa-question-circle"></i>
+                        <strong id="detailQuestion">How does EcoFi drive sustainability?</strong>
+                    </div>
+                    <p class="detail-answer" id="detailAnswer">Description here...</p>
+                    <div class="detail-divider"></div>
+                    <div class="detail-highlight">
+                        <i class="fas fa-bolt"></i>
+                        <span class="detail-highlight-title">The EcoFi Approach</span>
+                    </div>
+                    <p class="detail-highlight-text" id="detailApproach">Approach text...</p>
+                </div>
+            </div>
+
+            <!-- Right: Orbit Map -->
+            <div class="values-orbit-wrap">
+                <svg class="orbit-lines" id="orbitLines" viewBox="0 0 460 460" preserveAspectRatio="xMidYMid meet">
+                    <line id="connLine" x1="230" y1="230" x2="230" y2="230" stroke="url(#lineGrad)" stroke-width="2" opacity="0"/>
+                    <defs>
+                        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#00c853"/>
+                            <stop offset="100%" stop-color="#00e5ff"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+
+                <div class="values-orbit">
+                    <div class="orbit-ring"></div>
+                    <div class="orbit-center">
+                        <img src="/static/images/logo-eco.svg" alt="EcoFi" class="orbit-logo">
+                        <span>EcoFi</span>
+                    </div>
+
+                    <div class="value-node v1" data-value="sustainability">
+                        <div class="value-dot"><i class="fas fa-globe-asia"></i></div>
+                        <span>Sustainability</span>
+                    </div>
+                    <div class="value-node v2" data-value="community">
+                        <div class="value-dot"><i class="fas fa-handshake"></i></div>
+                        <span>Community</span>
+                    </div>
+                    <div class="value-node v3" data-value="innovation">
+                        <div class="value-dot"><i class="fas fa-microchip"></i></div>
+                        <span>Innovation</span>
+                    </div>
+                    <div class="value-node v4" data-value="transparency">
+                        <div class="value-dot"><i class="fas fa-shield-alt"></i></div>
+                        <span>Transparency</span>
+                    </div>
+                    <div class="value-node v5" data-value="impact">
+                        <div class="value-dot"><i class="fas fa-award"></i></div>
+                        <span>Impact</span>
+                    </div>
+                    <div class="value-node v6" data-value="accessibility">
+                        <div class="value-dot"><i class="fas fa-universal-access"></i></div>
+                        <span>Accessibility</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile fallback grid -->
+        <div class="values-grid-mobile">
+            <div class="value-mob-card reveal" data-value="sustainability"><i class="fas fa-globe-asia"></i><span>Sustainability</span></div>
+            <div class="value-mob-card reveal" data-value="community"><i class="fas fa-handshake"></i><span>Community</span></div>
+            <div class="value-mob-card reveal" data-value="innovation"><i class="fas fa-microchip"></i><span>Innovation</span></div>
+            <div class="value-mob-card reveal" data-value="transparency"><i class="fas fa-shield-alt"></i><span>Transparency</span></div>
+            <div class="value-mob-card reveal" data-value="impact"><i class="fas fa-award"></i><span>Impact</span></div>
+            <div class="value-mob-card reveal" data-value="accessibility"><i class="fas fa-universal-access"></i><span>Accessibility</span></div>
+        </div>
+        <!-- Mobile detail -->
+        <div class="value-mob-detail" id="valueMobDetail" style="display:none;">
+            <div class="detail-header">
+                <div class="detail-icon" id="mobDetailIcon"><i class="fas fa-globe-asia"></i></div>
+                <div>
+                    <h3 id="mobDetailTitle">Sustainability</h3>
+                    <span class="detail-tag">Core Value</span>
+                </div>
+            </div>
+            <p class="detail-answer" id="mobDetailAnswer">Description...</p>
+            <p class="detail-highlight-text" id="mobDetailApproach">Approach...</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TEAM
+     ═══════════════════════════════════════ -->
+<section class="team-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-tag"><i class="fas fa-user-friends"></i> The Team</div>
+            <h2>Meet the <span class="gradient-text">Minds</span> Behind EcoFi</h2>
+            <p>A passionate team of engineers, designers, and environmentalists.</p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-card reveal">
+                <div class="team-avatar">
+                    <div class="avatar-placeholder"><i class="fas fa-user-tie"></i></div>
+                </div>
+                <h4>Chandru</h4>
+                <span class="team-role">Founder & Lead Developer</span>
+                <p>Driving the vision of AI-powered waste management and building the tech backbone of EcoFi.</p>
+                <div class="team-socials">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="team-card reveal">
+                <div class="team-avatar">
+                    <div class="avatar-placeholder"><i class="fas fa-laptop-code"></i></div>
+                </div>
+                <h4>SR Team</h4>
+                <span class="team-role">Development & Design</span>
+                <p>The creative force behind EcoFi's UI/UX, ensuring every interaction feels modern and intuitive.</p>
+                <div class="team-socials">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="team-card reveal">
+                <div class="team-avatar">
+                    <div class="avatar-placeholder"><i class="fas fa-leaf"></i></div>
+                </div>
+                <h4>EcoFi Volunteers</h4>
+                <span class="team-role">Community Champions</span>
+                <p>Hundreds of passionate volunteers organizing events, drives, and spreading awareness across India.</p>
+                <div class="team-socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CTA SECTION
+     ═══════════════════════════════════════ -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-card reveal">
+            <div class="cta-glow"></div>
+            <h2>Ready to Make a <span class="gradient-text">Difference</span>?</h2>
+            <p>Join thousands of eco-warriors who are transforming waste management in India. Every action counts.</p>
+            <div class="cta-buttons">
+                <a href="community.html" class="btn-primary"><i class="fas fa-users"></i> Join Community</a>
+                <a href="donate.html" class="btn-secondary"><i class="fas fa-heart"></i> Support Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer id="contact">
+    <div class="footer-wave">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,60 1440,60 L1440,120 L0,120 Z" fill="currentColor"/>
+        </svg>
+    </div>
+    <div class="footer-content">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/static/images/logo-eco.svg" alt="EcoFi" class="footer-logo">
+                    <p>AI-powered waste management for a sustainable tomorrow.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="community.html">Community</a>
+                    <a href="marketplace.html">Marketplace</a>
+                    <a href="event.html">Events</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Platform</h4>
+                    <a href="login.html">Login</a>
+                    <a href="donate.html">Donate</a>
+                    <a href="volunteer.html">Volunteer</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 4/15, St.Josephs Street, OMR, Chennai - 600 017</p>
+                    <p><i class="fas fa-phone"></i> +91 8248936485</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@ecofi.in">info@ecofi.in</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 <strong>EcoFi</strong>. All rights reserved. Powered by <strong>SR</strong>.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="/static/js/about.js"></script>
+
+</body>
+</html>

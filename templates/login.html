@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | EcoFi</title>
+    <link rel="icon" type="image/png" href="/static/images/logobg.jpg">
+    <link rel="stylesheet" href="/static/css/styles1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Specific Styles for Modern Login Page */
+        body {
+            /* Inherit background logic from styles1.css but ensure it fills screen */
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #0b0f19; /* Primary dark background matching site */
+            overflow-x: hidden;
+        }
+
+        .login-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px 40px; /* Padding for fixed navbar */
+            position: relative;
+            z-index: 10;
+        }
+
+        .login-card {
+            background: rgba(16, 24, 40, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 200, 83, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 200, 83, 0.1) inset;
+            animation: formReveal 0.6s ease-out forwards;
+        }
+
+        @keyframes formReveal {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .login-header .gradient-text {
+            background: linear-gradient(135deg, #00c853, #b2ff59);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .login-header p {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        /* TABS */
+        .tabs {
+            display: flex;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            padding: 5px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tab-link {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            background: transparent;
+            color: #94a3b8;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tab-link.active {
+            background: rgba(0, 200, 83, 0.2);
+            color: #00c853;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-link:hover:not(.active) {
+            color: #ffffff;
+        }
+
+        /* FORM CONTAINERS */
+        .form-container {
+            display: none;
+            text-align: left;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .role-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 200, 83, 0.1);
+            color: #00c853;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            border: 1px solid rgba(0, 200, 83, 0.3);
+        }
+
+        .account-desc {
+            text-align: center;
+            color: #cbd5e1;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn-glow {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #00c853, #15A245);
+            color: white;
+            padding: 14px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 200, 83, 0.4);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- ── Floating Particles Canvas ── -->
+    <canvas id="particles"></canvas>
+
+    <!-- ── Navigation Bar ── -->
+    <header class="header" id="navbar">
+        <div class="logo">
+            <img src="/static/images/logo-eco.svg" alt="EcoFi Logo">
+        </div>
+        <button class="hamburger" id="menu-toggle">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="taskbar" id="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="donate.html">Donate</a>
+            <a href="community.html">Community</a>
+            <a href="marketplace.html">Marketplace</a>
+            <a href="event.html">Events</a>
+            <a href="about.html">About</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="login.html" class="nav-active nav-login">Login <i class="fas fa-arrow-right"></i></a>
+        </nav>
+    </header>
+
+    <!-- ── Login ── -->
+    <div class="login-wrapper">
+        <div class="login-card">
+            
+            <div class="login-header">
+                <h2>Welcome to <span class="gradient-text">EcoFi</span></h2>
+                <p>Sign in to your account to continue</p>
+            </div>
+
+            <!-- Role Tabs -->
+            <div class="tabs">
+                <button class="tab-link active" onclick="switchTab(event, 'User')"><i class="fas fa-user-circle"></i> Personal</button>
+                <button class="tab-link" onclick="switchTab(event, 'Business')"><i class="fas fa-building"></i> Business</button>
+            </div>
+
+            <!-- User Auth -->
+            <div id="User" class="form-container active">
+                <div class="role-icon"><i class="fas fa-seedling"></i></div>
+                <p class="account-desc">Login securely with AWS Cognito to access your EcoFi User dashboard, track impact, and earn eco-coins.</p>
+                <button class="btn-glow" onclick="redirectToCognito('User')">
+                    <i class="fas fa-shield-alt"></i> Login via AWS Cognito
+                </button>
+            </div>
+
+            <!-- Business Auth -->
+            <div id="Business" class="form-container">
+                <div class="role-icon"><i class="fas fa-industry"></i></div>
+                <p class="account-desc">Login securely with AWS Cognito to access your EcoFi Corporate dashboard, request bulk pickups, and track ESG impact.</p>
+                <button class="btn-glow" onclick="redirectToCognito('Business')">
+                    <i class="fas fa-shield-alt"></i> Login via AWS Cognito
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ── Scripts ── -->
+    <!-- Essential custom JS logic for Tabs & Cognito -->
+    <script>
+        function switchTab(evt, id) {
+            // Save selected role when switching tab
+            localStorage.setItem("userType", id);
+            
+            // Handle active class for tabs
+            const tabs = document.getElementsByClassName('tab-link');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            evt.currentTarget.classList.add('active');
+            
+            // Handle active class for form content
+            const forms = document.getElementsByClassName('form-container');
+            for (let i = 0; i < forms.length; i++) {
+                forms[i].classList.remove('active');
+            }
+            document.getElementById(id).classList.add('active');
+        }
+
+        function redirectToCognito(role) {
+            localStorage.setItem("userType", role);
+            
+            // AWS Cognito Configuration
+            const clientId = "YOUR_CLIENT_ID"; // Placeholder for placement readiness
+            const domain = "YOUR_COGNITO_DOMAIN"; // Placeholder for placement readiness
+            const redirect = window.location.origin + "/dashboard.html";
+            
+            // Simulation Mode: Allowed during development or for demo purposes
+            const isSimulationMode = true; 
+
+            if (isSimulationMode || clientId === "YOUR_CLIENT_ID") {
+                console.log("🚀 Running in Auth Simulation Mode for Demo...");
+                // Simulating a successful Cognito redirect fragment
+                const mockFragment = "#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlbW9AdXNlci5lY29maS5pbiIsIm5hbWUiOiJEZW1vIFVzZXIifQ.mock_signature&state=xyz";
+                window.location.href = redirect + mockFragment;
+            } else {
+                const url = `https://${domain}/login?client_id=${clientId}&response_type=token&scope=email+openid+phone&redirect_uri=${redirect}`;
+                window.location.href = url;
+            }
+        }
+    </script>
+    
+    <!-- ── Footer ── -->
+    <footer id="contact">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,60 1440,60 L1440,120 L0,120 Z" fill="currentColor"/>
+            </svg>
+        </div>
+        <div class="footer-content">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <img src="/static/images/logo-eco.svg" alt="EcoFi" class="footer-logo">
+                        <p>AI-powered waste management for a sustainable tomorrow.</p>
+                        <div class="footer-socials">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <a href="index.html">Home</a>
+                        <a href="community.html">Community</a>
+                        <a href="marketplace.html">Marketplace</a>
+                        <a href="event.html">Events</a>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Platform</h4>
+                        <a href="login.html">Login</a>
+                        <a href="donate.html">Donate</a>
+                        <a href="volunteer.html">Volunteer</a>
+                        <a href="#">Privacy Policy</a>
+                    </div>
+                    <div class="footer-contact">
+                        <h4>Contact Us</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> 4/15, St.Josephs Street, OMR, Chennai - 600 017</p>
+                        <p><i class="fas fa-phone"></i> +91 8248936485</p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:info@ecofi.in">info@ecofi.in</a></p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 <strong>EcoFi</strong>. All rights reserved. Powered by <strong>SR</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External Site Scripts (for Particles & Nav functionality) -->
+    <script src="/static/js/script.js"></script>
+    <script src="/static/js/home-animations.js"></script>
+
+</body>
+</html>

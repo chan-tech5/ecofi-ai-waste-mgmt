@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community | EcoFi - Smart Waste Management</title>
+    <link rel="icon" type="image/png" href="/static/images/logobg.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/community.css">
+</head>
+<body>
+
+<!-- Particles Canvas -->
+<canvas id="particles"></canvas>
+
+<!-- ── Navigation Bar (same as homepage) ── -->
+<header class="header" id="navbar">
+    <div class="logo">
+        <img src="/static/images/logo-eco.svg" alt="EcoFi Logo">
+    </div>
+    <button class="hamburger" id="menu-toggle">
+        <span></span><span></span><span></span>
+    </button>
+    <nav class="taskbar" id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="donate.html">Donate</a>
+        <a href="community.html" class="nav-active">Community</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="event.html">Events</a>
+        <a href="about.html">About</a>
+        <a href="#contact">Contact</a>
+        <a href="login.html" class="nav-login">Login <i class="fas fa-arrow-right"></i></a>
+    </nav>
+</header>
+
+<!-- ═══════════════════════════════════════
+     HERO – Inspiring Vision
+     ═══════════════════════════════════════ -->
+<section class="comm-hero">
+    <div class="comm-hero-overlay"></div>
+    <div class="comm-hero-content reveal">
+        <div class="hero-badge"><i class="fas fa-globe-americas"></i> Together for Earth</div>
+        <h1>Be Part of a <span class="gradient-text">Movement</span><br>That Changes the World</h1>
+        <p>Imagine cities with zero waste, rivers without plastic, and air that's pure. That future starts with you — every action counts, every voice matters.</p>
+        <div class="hero-buttons">
+            <a href="#tabs-section" class="btn-primary"><i class="fas fa-users"></i> Join the Community</a>
+            <a href="#leaderboard" class="btn-outline"><i class="fas fa-trophy"></i> See Leaderboard</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     VISION CARDS – Why Join
+     ═══════════════════════════════════════ -->
+<section class="vision-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fas fa-eye"></i> Our Vision</span>
+            <h2>A Future That's <span class="gradient-text">Beautiful & Peaceful</span></h2>
+            <p>When you join EcoFi, you're not just recycling — you're building the world your children deserve.</p>
+        </div>
+        <div class="vision-grid">
+            <div class="vision-card reveal" data-delay="0">
+                <div class="vision-emoji">🌳</div>
+                <h3>Pollution-Free Cities</h3>
+                <p>Smart waste sorting powered by AI keeps streets clean, reduces landfills by 60%, and eliminates toxic runoff into water bodies.</p>
+            </div>
+            <div class="vision-card reveal" data-delay="100">
+                <div class="vision-emoji">💚</div>
+                <h3>Healthy Communities</h3>
+                <p>Proper waste management reduces disease outbreaks by 40%. Clean surroundings mean healthier families and longer lives.</p>
+            </div>
+            <div class="vision-card reveal" data-delay="200">
+                <div class="vision-emoji">🕊️</div>
+                <h3>Peaceful Living</h3>
+                <p>When waste is managed smartly, neighborhoods thrive. No more burning dumps, no stench — just clean air and green spaces.</p>
+            </div>
+            <div class="vision-card reveal" data-delay="300">
+                <div class="vision-emoji">🌍</div>
+                <h3>Circular Economy</h3>
+                <p>Your waste becomes someone's resource. Recycled products create jobs, reduce extraction, and build a self-sustaining economy.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     COMMUNITY IMPACT STATS
+     ═══════════════════════════════════════ -->
+<section class="comm-impact">
+    <div class="container">
+        <div class="impact-strip reveal">
+            <div class="impact-item">
+                <span class="impact-num counter" data-target="5000">0</span><span class="impact-suffix">Kg</span>
+                <p>Waste Recycled</p>
+            </div>
+            <div class="impact-divider"></div>
+            <div class="impact-item">
+                <span class="impact-num counter" data-target="12000">0</span><span class="impact-suffix">Kg</span>
+                <p>CO₂ Reduced</p>
+            </div>
+            <div class="impact-divider"></div>
+            <div class="impact-item">
+                <span class="impact-num counter" data-target="1500">0</span><span class="impact-suffix">+</span>
+                <p>Eco Warriors</p>
+            </div>
+            <div class="impact-divider"></div>
+            <div class="impact-item">
+                <span class="impact-num counter" data-target="320">0</span><span class="impact-suffix">+</span>
+                <p>Trees Equivalent</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     LEADERBOARD
+     ═══════════════════════════════════════ -->
+<section id="leaderboard" class="leaderboard-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fas fa-trophy"></i> Leaderboard</span>
+            <h2>Top <span class="gradient-text">Eco Warriors</span></h2>
+            <p>Compete, contribute, and climb the ranks. Every green action earns you eco-coins!</p>
+        </div>
+        <div class="leaderboard-wrapper reveal">
+            <!-- Top 3 Podium -->
+            <div class="podium">
+                <div class="podium-item silver">
+                    <div class="podium-avatar">JD</div>
+                    <div class="podium-rank">2</div>
+                    <h4>John Doe</h4>
+                    <span class="podium-coins"><i class="fas fa-coins"></i> 950</span>
+                    <div class="podium-bar"></div>
+                </div>
+                <div class="podium-item gold">
+                    <div class="podium-crown"><i class="fas fa-crown"></i></div>
+                    <div class="podium-avatar gold-avatar">AG</div>
+                    <div class="podium-rank">1</div>
+                    <h4>Alice Green</h4>
+                    <span class="podium-coins"><i class="fas fa-coins"></i> 1,200</span>
+                    <div class="podium-bar"></div>
+                </div>
+                <div class="podium-item bronze">
+                    <div class="podium-avatar">EB</div>
+                    <div class="podium-rank">3</div>
+                    <h4>Emma Brown</h4>
+                    <span class="podium-coins"><i class="fas fa-coins"></i> 800</span>
+                    <div class="podium-bar"></div>
+                </div>
+            </div>
+            <!-- Rest of leaderboard -->
+            <div class="leaderboard-table">
+                <div class="lb-row">
+                    <span class="lb-rank">4</span>
+                    <div class="lb-avatar">RK</div>
+                    <span class="lb-name">Ravi Kumar</span>
+                    <span class="lb-badge"><i class="fas fa-fire"></i> 7-day streak</span>
+                    <span class="lb-coins"><i class="fas fa-coins"></i> 720</span>
+                </div>
+                <div class="lb-row">
+                    <span class="lb-rank">5</span>
+                    <div class="lb-avatar">SP</div>
+                    <span class="lb-name">Sara Patel</span>
+                    <span class="lb-badge"><i class="fas fa-seedling"></i> New joiner</span>
+                    <span class="lb-coins"><i class="fas fa-coins"></i> 650</span>
+                </div>
+                <div class="lb-row">
+                    <span class="lb-rank">6</span>
+                    <div class="lb-avatar">MN</div>
+                    <span class="lb-name">Meena Nair</span>
+                    <span class="lb-badge"><i class="fas fa-recycle"></i> Recycler</span>
+                    <span class="lb-coins"><i class="fas fa-coins"></i> 580</span>
+                </div>
+                <div class="lb-row highlight-you">
+                    <span class="lb-rank">?</span>
+                    <div class="lb-avatar you-avatar"><i class="fas fa-user"></i></div>
+                    <span class="lb-name">You</span>
+                    <span class="lb-badge"><i class="fas fa-plus-circle"></i> Join now!</span>
+                    <span class="lb-coins"><i class="fas fa-coins"></i> ---</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     EARN ECO-COINS – How It Works
+     ═══════════════════════════════════════ -->
+<section class="earn-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fas fa-coins"></i> Earn & Redeem</span>
+            <h2>How to Earn <span class="gradient-text">Eco-Coins</span></h2>
+        </div>
+        <div class="earn-grid">
+            <div class="earn-card reveal" data-delay="0">
+                <div class="earn-icon"><i class="fas fa-camera"></i></div>
+                <div class="earn-coins">+10</div>
+                <h4>Classify Waste</h4>
+                <p>Upload & classify a waste image using AI</p>
+            </div>
+            <div class="earn-card reveal" data-delay="80">
+                <div class="earn-icon"><i class="fas fa-flag"></i></div>
+                <div class="earn-coins">+25</div>
+                <h4>Report Dumping</h4>
+                <p>Report illegal dumping with photo proof</p>
+            </div>
+            <div class="earn-card reveal" data-delay="160">
+                <div class="earn-icon"><i class="fas fa-hands-helping"></i></div>
+                <div class="earn-coins">+50</div>
+                <h4>Volunteer</h4>
+                <p>Join a cleanup drive or eco-workshop</p>
+            </div>
+            <div class="earn-card reveal" data-delay="240">
+                <div class="earn-icon"><i class="fas fa-fire"></i></div>
+                <div class="earn-coins">+5/day</div>
+                <h4>Daily Streak</h4>
+                <p>Log eco-actions daily for bonus coins</p>
+            </div>
+            <div class="earn-card reveal" data-delay="320">
+                <div class="earn-icon"><i class="fas fa-share-alt"></i></div>
+                <div class="earn-coins">+15</div>
+                <h4>Refer Friends</h4>
+                <p>Invite friends to join EcoFi Community</p>
+            </div>
+            <div class="earn-card reveal" data-delay="400">
+                <div class="earn-icon"><i class="fas fa-shopping-cart"></i></div>
+                <div class="earn-coins">Redeem</div>
+                <h4>Eco Marketplace</h4>
+                <p>Use coins for discounts on eco-products</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TABS: Discussion · Feedback · Volunteer
+     ═══════════════════════════════════════ -->
+<section id="tabs-section" class="tabs-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fas fa-hand-point-up"></i> Get Involved</span>
+            <h2>Community <span class="gradient-text">Hub</span></h2>
+        </div>
+
+        <!-- Tab Buttons -->
+        <div class="tab-buttons reveal">
+            <button class="tab-btn active" data-tab="discussion">
+                <i class="fas fa-comments"></i> Discussion
+            </button>
+            <button class="tab-btn" data-tab="feedback">
+                <i class="fas fa-paper-plane"></i> Feedback
+            </button>
+            <button class="tab-btn" data-tab="volunteer">
+                <i class="fas fa-hand-holding-heart"></i> Volunteer
+            </button>
+        </div>
+
+        <!-- ── TAB 1: Discussion ── -->
+        <div class="tab-content active" id="tab-discussion">
+            <div class="discussion-layout">
+                <!-- Post a comment -->
+                <div class="post-card">
+                    <h3><i class="fas fa-plus-circle"></i> Share Your Thoughts</h3>
+                    <form id="discussion-form">
+                        <div class="form-group">
+                            <input type="text" id="disc-name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="disc-message" rows="3" placeholder="Share an idea, tip, or eco-story..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Post</button>
+                    </form>
+                </div>
+                <!-- Comments feed -->
+                <div class="comments-feed" id="comments-feed">
+                    <div class="comment-card">
+                        <div class="comment-avatar">AG</div>
+                        <div class="comment-body">
+                            <div class="comment-header">
+                                <strong>Alice Green</strong>
+                                <span>2 hours ago</span>
+                            </div>
+                            <p>Started composting at home last week! Already reduced my waste by 30%. Anyone else tried vermicomposting? 🌱</p>
+                            <div class="comment-actions">
+                                <button class="like-btn"><i class="fas fa-heart"></i> 12</button>
+                                <button class="reply-btn"><i class="fas fa-reply"></i> Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-avatar">JD</div>
+                        <div class="comment-body">
+                            <div class="comment-header">
+                                <strong>John Doe</strong>
+                                <span>5 hours ago</span>
+                            </div>
+                            <p>The AI waste classifier is surprisingly accurate! It correctly identified 3 different types of plastic for me today. 🤖♻️</p>
+                            <div class="comment-actions">
+                                <button class="like-btn"><i class="fas fa-heart"></i> 8</button>
+                                <button class="reply-btn"><i class="fas fa-reply"></i> Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-avatar">EB</div>
+                        <div class="comment-body">
+                            <div class="comment-header">
+                                <strong>Emma Brown</strong>
+                                <span>1 day ago</span>
+                            </div>
+                            <p>Just participated in the weekend beach cleanup at Marina! We collected 200kg of waste. Next drive: March 15th — who's in? 🏖️🧹</p>
+                            <div class="comment-actions">
+                                <button class="like-btn"><i class="fas fa-heart"></i> 24</button>
+                                <button class="reply-btn"><i class="fas fa-reply"></i> Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── TAB 2: Feedback ── -->
+        <div class="tab-content" id="tab-feedback">
+            <div class="feedback-layout">
+                <div class="feedback-info">
+                    <div class="feedback-emoji">📝</div>
+                    <h3>Your Voice Shapes Our Future</h3>
+                    <p>Tell us what's working, what needs improving, or suggest new features. Every piece of feedback is reviewed by our team within 48 hours.</p>
+                    <div class="feedback-stats">
+                        <div class="fb-stat">
+                            <strong>95%</strong>
+                            <span>Issues Resolved</span>
+                        </div>
+                        <div class="fb-stat">
+                            <strong>48h</strong>
+                            <span>Avg Response</span>
+                        </div>
+                        <div class="fb-stat">
+                            <strong>200+</strong>
+                            <span>Feedbacks Received</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="feedback-card">
+                    <h3><i class="fas fa-paper-plane"></i> Send Feedback</h3>
+                    <form id="feedback-form">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Name</label>
+                            <input type="text" id="fb-name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="fb-email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-tag"></i> Category</label>
+                            <select id="fb-category" required>
+                                <option value="">Choose category...</option>
+                                <option value="bug">Bug Report</option>
+                                <option value="feature">Feature Request</option>
+                                <option value="improvement">Improvement</option>
+                                <option value="praise">Praise / Thanks</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-star"></i> Rating</label>
+                            <div class="star-rating" id="star-rating">
+                                <i class="fas fa-star" data-val="1"></i>
+                                <i class="fas fa-star" data-val="2"></i>
+                                <i class="fas fa-star" data-val="3"></i>
+                                <i class="fas fa-star" data-val="4"></i>
+                                <i class="fas fa-star" data-val="5"></i>
+                            </div>
+                            <input type="hidden" id="fb-rating" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-comment-dots"></i> Message</label>
+                            <textarea id="fb-message" rows="4" placeholder="Describe your feedback in detail..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Submit Feedback</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── TAB 3: Volunteer ── -->
+        <div class="tab-content" id="tab-volunteer">
+            <div class="volunteer-layout">
+                <!-- Volunteer Info -->
+                <div class="volunteer-info">
+                    <div class="vol-quote reveal">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Empowering individuals and communities through AI-driven waste management to achieve a zero-waste world."</p>
+                    </div>
+                    <h3>Why Volunteer with <span class="gradient-text">EcoFi?</span></h3>
+                    <div class="vol-benefits">
+                        <div class="vol-benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Earn 50 eco-coins per drive</span>
+                        </div>
+                        <div class="vol-benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Official volunteer certificate</span>
+                        </div>
+                        <div class="vol-benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Network with eco-leaders</span>
+                        </div>
+                        <div class="vol-benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Featured on leaderboard</span>
+                        </div>
+                        <div class="vol-benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Free eco-merchandise</span>
+                        </div>
+                    </div>
+
+                    <!-- Volunteer Roles -->
+                    <h4>Open Roles</h4>
+                    <div class="vol-roles">
+                        <div class="vol-role">
+                            <div class="role-icon"><i class="fas fa-broom"></i></div>
+                            <div>
+                                <strong>Cleanup Captain</strong>
+                                <p>Lead weekend cleanup drives in your area</p>
+                            </div>
+                        </div>
+                        <div class="vol-role">
+                            <div class="role-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                            <div>
+                                <strong>Eco Educator</strong>
+                                <p>Teach waste management in schools & colleges</p>
+                            </div>
+                        </div>
+                        <div class="vol-role">
+                            <div class="role-icon"><i class="fas fa-laptop-code"></i></div>
+                            <div>
+                                <strong>Tech Volunteer</strong>
+                                <p>Help improve AI models & platform features</p>
+                            </div>
+                        </div>
+                        <div class="vol-role">
+                            <div class="role-icon"><i class="fas fa-bullhorn"></i></div>
+                            <div>
+                                <strong>Community Ambassador</strong>
+                                <p>Spread awareness on social media & events</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Volunteer Form -->
+                <div class="volunteer-card">
+                    <h3><i class="fas fa-hand-holding-heart"></i> Register as Volunteer</h3>
+                    <form id="volunteer-form">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" id="vol-name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="vol-email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Phone</label>
+                            <input type="tel" id="vol-phone" placeholder="+91 XXXXX XXXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-map-marker-alt"></i> City</label>
+                            <input type="text" id="vol-city" placeholder="Your city" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-briefcase"></i> Preferred Role</label>
+                            <select id="vol-role" required>
+                                <option value="">Choose a role...</option>
+                                <option value="cleanup-captain">Cleanup Captain</option>
+                                <option value="eco-educator">Eco Educator</option>
+                                <option value="tech-volunteer">Tech Volunteer</option>
+                                <option value="ambassador">Community Ambassador</option>
+                                <option value="any">Open to Any Role</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-clock"></i> Availability</label>
+                            <select id="vol-availability" required>
+                                <option value="">Choose availability...</option>
+                                <option value="weekends">Weekends Only</option>
+                                <option value="weekdays">Weekdays</option>
+                                <option value="flexible">Flexible</option>
+                                <option value="events-only">Events Only</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-comment"></i> Why do you want to volunteer?</label>
+                            <textarea id="vol-message" rows="3" placeholder="Tell us your motivation..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn"><i class="fas fa-rocket"></i> Join as Volunteer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PLEDGE / CTA SECTION
+     ═══════════════════════════════════════ -->
+<section class="pledge-section">
+    <div class="container">
+        <div class="pledge-card reveal">
+            <div class="pledge-bg"></div>
+            <div class="pledge-content">
+                <h2>Take the <span class="gradient-text-light">Green Pledge</span></h2>
+                <p>I pledge to reduce waste, recycle responsibly, and inspire others to protect our planet for future generations.</p>
+                <div class="pledge-counter">
+                    <span class="pledge-num counter" data-target="4832">0</span>
+                    <span>people have taken this pledge</span>
+                </div>
+                <button class="btn-glow" id="pledge-btn">
+                    <i class="fas fa-leaf"></i> I Take the Pledge
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SUCCESS MODAL (reusable)
+     ═══════════════════════════════════════ -->
+<div class="modal-overlay" id="success-modal">
+    <div class="modal-card">
+        <div class="modal-icon"><i class="fas fa-check-circle"></i></div>
+        <h2 id="modal-title">Success!</h2>
+        <p id="modal-message">Your submission has been received.</p>
+        <button class="btn-primary" onclick="document.getElementById('success-modal').classList.remove('show')">
+            <i class="fas fa-thumbs-up"></i> Got it!
+        </button>
+    </div>
+</div>
+
+<!-- ── Footer ── -->
+<footer id="contact">
+    <div class="footer-wave">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,60 1440,60 L1440,120 L0,120 Z" fill="currentColor"/>
+        </svg>
+    </div>
+    <div class="footer-content">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/static/images/logo-eco.svg" alt="EcoFi" class="footer-logo">
+                    <p>AI-powered waste management for a sustainable tomorrow.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="community.html">Community</a>
+                    <a href="marketplace.html">Marketplace</a>
+                    <a href="event.html">Events</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Platform</h4>
+                    <a href="login.html">Login</a>
+                    <a href="donate.html">Donate</a>
+                    <a href="volunteer.html">Volunteer</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 4/15, St.Josephs Street, OMR, Chennai - 600 017</p>
+                    <p><i class="fas fa-phone"></i> +91 8248936485</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@ecofi.in">info@ecofi.in</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 <strong>EcoFi</strong>. All rights reserved. Powered by <strong>SR</strong>.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="/static/js/community.js"></script>
+
+</body>
+</html>

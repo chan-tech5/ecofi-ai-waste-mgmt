@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Marketplace | EcoFi - Smart Waste Management</title>
+    <link rel="icon" type="image/png" href="/static/images/logobg.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/marketplace.css">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- ── Navbar ── -->
+<header class="header" id="navbar">
+    <div class="logo">
+        <img src="/static/images/logo-eco.svg" alt="EcoFi Logo">
+    </div>
+    <button class="hamburger" id="menu-toggle">
+        <span></span><span></span><span></span>
+    </button>
+    <nav class="taskbar" id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="donate.html">Donate</a>
+        <a href="community.html">Community</a>
+        <a href="marketplace.html" class="nav-active">Marketplace</a>
+        <a href="event.html">Events</a>
+        <a href="about.html">About</a>
+        <a href="#contact">Contact</a>
+        <a href="login.html" class="nav-login">Login <i class="fas fa-arrow-right"></i></a>
+    </nav>
+</header>
+
+<!-- Cart Icon (floating) -->
+<button class="cart-fab" id="cart-fab" title="Your Cart">
+    <i class="fas fa-shopping-bag"></i>
+    <span class="cart-count" id="cart-count">0</span>
+</button>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<section class="mp-hero">
+    <div class="mp-hero-overlay"></div>
+    <div class="mp-hero-content reveal">
+        <div class="hero-badge"><i class="fas fa-leaf"></i> 100% Recycled Products</div>
+        <h1>Shop <span class="gradient-text">Sustainably</span>, Live Responsibly</h1>
+        <p>Every product made from waste. Every purchase saves the planet. Use eco-coins for extra discounts!</p>
+        <div class="hero-perks">
+            <span><i class="fas fa-recycle"></i> Made from Waste</span>
+            <span><i class="fas fa-coins"></i> Pay with Eco-Coins</span>
+            <span><i class="fas fa-truck"></i> Eco-Friendly Delivery</span>
+            <span><i class="fas fa-shield-halved"></i> Quality Guaranteed</span>
+        </div>
+        <a href="#shop" class="btn-primary"><i class="fas fa-shopping-bag"></i> Start Shopping</a>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SHOP SECTION
+     ═══════════════════════════════════════ -->
+<section id="shop" class="shop-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fas fa-store"></i> Eco Store</span>
+            <h2>Our <span class="gradient-text">Products</span></h2>
+        </div>
+
+        <!-- Toolbar: Filter + Sort + Search -->
+        <div class="shop-toolbar reveal">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="Search eco-products...">
+            </div>
+            <div class="toolbar-filters">
+                <select id="category-filter">
+                    <option value="all">All Categories</option>
+                    <option value="bags">Bags & Totes</option>
+                    <option value="stationery">Stationery</option>
+                    <option value="bottles">Bottles & Drinkware</option>
+                    <option value="home">Home & Kitchen</option>
+                    <option value="fashion">Eco Fashion</option>
+                    <option value="garden">Garden & Outdoor</option>
+                </select>
+                <select id="sort-filter">
+                    <option value="default">Sort: Featured</option>
+                    <option value="low">Price: Low → High</option>
+                    <option value="high">Price: High → Low</option>
+                    <option value="popular">Most Popular</option>
+                    <option value="newest">Newest First</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="products-grid">
+            <!-- Products injected by JS -->
+        </div>
+
+        <!-- No results -->
+        <div class="no-products" id="no-products" style="display:none">
+            <i class="fas fa-box-open"></i>
+            <h3>No products found</h3>
+            <p>Try a different search or category.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     WHY SHOP HERE
+     ═══════════════════════════════════════ -->
+<section class="why-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fas fa-heart"></i> Why EcoFi Marketplace</span>
+            <h2>Not Just Products, <span class="gradient-text">Impact</span></h2>
+        </div>
+        <div class="why-grid">
+            <div class="why-card reveal" data-delay="0">
+                <div class="why-icon"><i class="fas fa-recycle"></i></div>
+                <h4>100% Recycled</h4>
+                <p>Every product is made entirely from recycled waste materials — zero virgin resources.</p>
+            </div>
+            <div class="why-card reveal" data-delay="100">
+                <div class="why-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                <h4>Supports Communities</h4>
+                <p>Profits fund waste picker welfare, education, and community cleanup drives.</p>
+            </div>
+            <div class="why-card reveal" data-delay="200">
+                <div class="why-icon"><i class="fas fa-coins"></i></div>
+                <h4>Eco-Coin Rewards</h4>
+                <p>Earn 1 eco-coin per ₹10 spent. Redeem coins on future purchases or donate them.</p>
+            </div>
+            <div class="why-card reveal" data-delay="300">
+                <div class="why-icon"><i class="fas fa-leaf"></i></div>
+                <h4>Carbon Neutral</h4>
+                <p>All deliveries are carbon-offset. Packaging is 100% compostable.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CART SIDEBAR (Right Drawer)
+     ═══════════════════════════════════════ -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+        <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+        <button class="cart-close" id="cart-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cart-items">
+        <!-- Cart items injected by JS -->
+        <div class="cart-empty" id="cart-empty">
+            <i class="fas fa-bag-shopping"></i>
+            <p>Your cart is empty</p>
+            <span>Browse products and add items!</span>
+        </div>
+    </div>
+    <div class="cart-summary" id="cart-summary" style="display:none">
+        <div class="summary-row">
+            <span>Subtotal</span>
+            <strong>₹<span id="cart-subtotal">0</span></strong>
+        </div>
+        <div class="summary-row">
+            <span>Eco-Coins Earned</span>
+            <strong class="coins-earned"><i class="fas fa-coins"></i> <span id="cart-coins">0</span></strong>
+        </div>
+        <div class="summary-row total-row">
+            <span>Total</span>
+            <strong>₹<span id="cart-total">0</span></strong>
+        </div>
+        <button class="checkout-btn" id="checkout-btn">
+            <i class="fas fa-lock"></i> Proceed to Checkout
+        </button>
+    </div>
+</aside>
+
+<!-- ═══════════════════════════════════════
+     CHECKOUT MODAL
+     ═══════════════════════════════════════ -->
+<div class="modal-overlay" id="checkout-modal">
+    <div class="modal-card checkout-modal-card">
+        <button class="modal-close-btn" id="checkout-close"><i class="fas fa-times"></i></button>
+        <div class="modal-header">
+            <div class="modal-badge"><i class="fas fa-credit-card"></i></div>
+            <h2>Checkout</h2>
+            <p class="modal-subtitle">Complete your eco-friendly purchase</p>
+        </div>
+        <form id="checkout-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="co-name" placeholder="Your full name" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="co-email" placeholder="you@example.com" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label><i class="fas fa-phone"></i> Phone</label>
+                    <input type="tel" id="co-phone" placeholder="+91 XXXXX XXXXX" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-wallet"></i> Payment</label>
+                    <select id="co-payment" required>
+                        <option value="">Choose method...</option>
+                        <option value="upi">UPI</option>
+                        <option value="card">Credit/Debit Card</option>
+                        <option value="cod">Cash on Delivery</option>
+                        <option value="eco-coins">Eco-Coins Only</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-map-marker-alt"></i> Delivery Address</label>
+                <textarea id="co-address" rows="2" placeholder="Full delivery address with pincode" required></textarea>
+            </div>
+            <div class="checkout-summary" id="checkout-summary">
+                <!-- Filled by JS -->
+            </div>
+            <button type="submit" class="submit-btn" id="place-order-btn">
+                <i class="fas fa-check-circle"></i> Place Order
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     ORDER SUCCESS MODAL
+     ═══════════════════════════════════════ -->
+<div class="modal-overlay" id="success-modal">
+    <div class="modal-card success-modal-card">
+        <div class="success-check">
+            <svg viewBox="0 0 52 52">
+                <circle cx="26" cy="26" r="25" fill="none" stroke="#00c853" stroke-width="2"/>
+                <path fill="none" stroke="#00c853" stroke-width="3" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+        </div>
+        <h2>Order Placed! 🎉</h2>
+        <p id="success-msg">Your eco-friendly order is confirmed.</p>
+        <div class="success-details" id="order-details"></div>
+        <button class="btn-primary" onclick="document.getElementById('success-modal').classList.remove('show')">
+            <i class="fas fa-thumbs-up"></i> Continue Shopping
+        </button>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     QUICK VIEW MODAL
+     ═══════════════════════════════════════ -->
+<div class="modal-overlay" id="quickview-modal">
+    <div class="modal-card quickview-card">
+        <button class="modal-close-btn" id="qv-close"><i class="fas fa-times"></i></button>
+        <div class="qv-layout">
+            <div class="qv-visual" id="qv-visual"></div>
+            <div class="qv-info">
+                <div class="qv-badge" id="qv-badge"></div>
+                <h2 id="qv-title"></h2>
+                <p id="qv-desc"></p>
+                <div class="qv-eco-impact" id="qv-impact"></div>
+                <div class="qv-price-row">
+                    <span class="qv-price" id="qv-price"></span>
+                    <span class="qv-original" id="qv-original"></span>
+                </div>
+                <div class="qv-qty">
+                    <button class="qty-btn" id="qv-minus">−</button>
+                    <span id="qv-qty">1</span>
+                    <button class="qty-btn" id="qv-plus">+</button>
+                </div>
+                <button class="submit-btn qv-add-btn" id="qv-add">
+                    <i class="fas fa-shopping-bag"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── Footer ── -->
+<footer id="contact">
+    <div class="footer-wave">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,60 1440,60 L1440,120 L0,120 Z" fill="currentColor"/>
+        </svg>
+    </div>
+    <div class="footer-content">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/static/images/logo-eco.svg" alt="EcoFi" class="footer-logo">
+                    <p>AI-powered waste management for a sustainable tomorrow.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="community.html">Community</a>
+                    <a href="marketplace.html">Marketplace</a>
+                    <a href="event.html">Events</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Platform</h4>
+                    <a href="login.html">Login</a>
+                    <a href="donate.html">Donate</a>
+                    <a href="volunteer.html">Volunteer</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 4/15, St.Josephs Street, OMR, Chennai - 600 017</p>
+                    <p><i class="fas fa-phone"></i> +91 8248936485</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@ecofi.in">info@ecofi.in</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 <strong>EcoFi</strong>. All rights reserved. Powered by <strong>SR</strong>.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="/static/js/marketplace.js"></script>
+
+</body>
+</html>
+
+
+<script>
+    function filterProducts() {
+        const filterValue = document.getElementById("category-filter").value;
+        const products = document.querySelectorAll(".product-card");
+
+        products.forEach(product => {
+            if (filterValue === "all" || product.getAttribute("data-category") === filterValue) {
+                product.style.display = "block";
+            } else {
+                product.style.display = "none";
+            }
+        });
+    }
+
+    function sortProducts() {
+        const sortValue = document.getElementById("sort-price").value;
+        const productContainer = document.querySelector(".products");
+        const products = Array.from(document.querySelectorAll(".product-card"));
+
+        products.sort((a, b) => {
+            const priceA = parseInt(a.getAttribute("data-price"));
+            const priceB = parseInt(b.getAttribute("data-price"));
+            return sortValue === "low-to-high" ? priceA - priceB : priceB - priceA;
+        });
+
+        productContainer.innerHTML = "";
+        products.forEach(product => productContainer.appendChild(product));
+    }
+
+
+    const bot = document.getElementById('bot-img')
+    const botbtn = document.getElementById('bot-btn')
+    function enablebot(){
+        bot.style.display='block'
+        alert('Scroll Down Kindly use our Chat Assistant to Have Some Support')
+       
+    }
+    
+</script>
+</body>
+
+</html>

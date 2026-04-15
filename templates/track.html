@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Aggregation Details</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Leaflet CSS  -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/static/js/details.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Track Waste Collecting Vehicles</h1>
+    </header>
+    <main>
+        <section>
+            <div class="place-container">
+                <div id="placeName"></div>
+            </div>
+        </section>
+        <section class = "maps">
+            <h2>Selected Location on Map</h2>
+            <div id="map" style="height: 400px;"></div>
+        </section>
+        
+    </main>
+</body>
+</html>

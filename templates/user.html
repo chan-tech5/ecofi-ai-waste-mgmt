@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard | EcoFi</title>
+    <link rel="icon" type="image/png" href="/static/images/logobg.jpg">
+    <!-- Inherit Main Theme -->
+    <link rel="stylesheet" href="/static/css/styles1.css">
+    <!-- Component Specific Dashboard Theme -->
+    <link rel="stylesheet" href="/static/css/user-dashboard.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- ── SECURITY GUARD (Cognito Session Check) ── -->
+    <script>
+        (function() {
+            const token = localStorage.getItem("id_token");
+            if (!token) {
+                console.warn("🔐 Access Denied: No valid session found. Redirecting to login...");
+                window.location.href = "/login.html?auth=required";
+            }
+        })();
+    </script>
+
+    <!-- ── Floating Particles Canvas ── -->
+    <canvas id="particles"></canvas>
+
+    <!-- ── Navigation Bar ── -->
+    <header class="header" id="navbar">
+        <div class="logo">
+            <img src="/static/images/logo-eco.svg" alt="EcoFi Logo">
+        </div>
+        <button class="hamburger" id="menu-toggle">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="taskbar" id="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="#dashboard" class="nav-active">Dashboard</a>
+            <a href="#issue-reporting">Report Issue</a>
+            <a href="#issue-status">Status</a>
+            <a href="#faq">FAQ</a>
+            <a href="login.html" class="nav-login" onclick="logout()">Logout <i class="fas fa-sign-out-alt"></i></a>
+        </nav>
+    </header>
+
+    <!-- ── Hero Banner ── -->
+    <section class="dashboard-hero">
+        <h2>Welcome back, <span class="gradient-text" id="user-name">Eco Warrior</span>! 👋</h2>
+        <p>Start making a difference today with smart waste management.</p>
+    </section>
+
+    <!-- ── Dashboard Container ── -->
+    <div class="container" style="position: relative; z-index: 10;">
+        
+        <!-- Dashboard Overview -->
+        <section id="dashboard" class="glass-panel">
+            <h3 class="section-title"><i class="fas fa-chart-pie"></i> Dashboard Overview</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-coins"></i></div>
+                    <h3>Eco-Coins Earned</h3>
+                    <p id="eco-coins">150</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-recycle"></i></div>
+                    <h3>Waste Recycled</h3>
+                    <p id="waste-recycled">10 <span>kg</span></p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-cloud"></i></div>
+                    <h3>CO₂ Reduced</h3>
+                    <p id="co2-reduced">25 <span>kg</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analytics Charts -->
+        <section id="analytics" class="glass-panel">
+            <h3 class="section-title"><i class="fas fa-chart-line"></i> Your Recycling Impact</h3>
+            <div class="charts-grid">
+                <div class="chart-wrapper">
+                    <canvas id="wasteChart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="issueChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Issue Reporting -->
+        <section id="issue-reporting" class="glass-panel">
+            <h3 class="section-title"><i class="fas fa-exclamation-triangle"></i> Report Illegal Dumping</h3>
+            <p style="color: #94a3b8; margin-bottom: 20px;">Spotted a waste dump? Report it instantly so local authorities can take action.</p>
+            
+            <div class="form-group">
+                <label for="location"><i class="fas fa-map-marker-alt"></i> Location</label>
+                <input type="text" id="location" placeholder="Enter full address or coordinate location">
+            </div>
+
+            <div class="form-group">
+                <label for="description"><i class="fas fa-comment-alt"></i> Description</label>
+                <textarea id="description" rows="3" placeholder="Describe the severity and contents of the issue..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="issueImage"><i class="fas fa-camera"></i> Upload Geotagged Image (Optional)</label>
+                <input type="file" id="issueImage" accept="image/*">
+            </div>
+
+            <button class="btn-submit" onclick="submitIssue()">
+                <i class="fas fa-paper-plane"></i> Submit Report
+            </button>
+            <p id="issue-status" style="margin-top: 15px; color: #00c853; font-weight: bold;"></p>
+        </section>
+
+        <!-- Track Issue Status -->
+        <section id="issue-status" class="glass-panel">
+            <h3 class="section-title"><i class="fas fa-tasks"></i> Track Issue Status</h3>
+            <div style="overflow-x: auto;">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Issue ID</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#001</td>
+                            <td>Main Street, City Center</td>
+                            <td><span class="badge-status badge-pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>#002</td>
+                            <td>Park Avenue, Sector 5</td>
+                            <td><span class="badge-status badge-resolved">Resolved</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Submit Feedback -->
+        <section id="feedback" class="glass-panel">
+            <h3 class="section-title"><i class="fas fa-comment-dots"></i> Submit Your Feedback</h3>
+            <div class="form-group">
+                <textarea id="feedbackMessage" rows="3" placeholder="Let us know how we can improve the platform!"></textarea>
+            </div>
+            <button class="btn-submit" onclick="submitFeedback()">
+                <i class="fas fa-share"></i> Send Feedback
+            </button>
+        </section>
+
+        <!-- FAQ Area -->
+        <section id="faq" class="glass-panel">
+            <h3 class="section-title"><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-grid">
+                
+                <div class="faq-item">
+                    <button class="faq-question">1. How do I earn Eco Points? <i class="fas fa-chevron-down arrow"></i></button>
+                    <div class="faq-answer">
+                        <p>You earn Eco Points by properly classifying and recycling waste, reporting illegal dumping, and participating in community activities.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">2. What can I do with my Eco Points? <i class="fas fa-chevron-down arrow"></i></button>
+                    <div class="faq-answer">
+                        <p>Eco Points can be redeemed for rewards, including discounts on eco-friendly products in our marketplace, donation credits to sustainability programs, or even converted into coupons for sustainable brands.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">3. How do I report an illegal dumping issue? <i class="fas fa-chevron-down arrow"></i></button>
+                    <div class="faq-answer">
+                        <p>Go to the "Report an Issue" section on your dashboard, enter the location, upload a photo, and submit it. Our system will notify the local authorities for action.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ── Footer ── -->
+    <footer id="contact">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,60 1440,60 L1440,120 L0,120 Z" fill="currentColor"/>
+            </svg>
+        </div>
+        <div class="footer-content">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <img src="/static/images/logo-eco.svg" alt="EcoFi" class="footer-logo">
+                        <p>AI-powered waste management for a sustainable tomorrow.</p>
+                        <div class="footer-socials">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <a href="index.html">Home</a>
+                        <a href="community.html">Community</a>
+                        <a href="marketplace.html">Marketplace</a>
+                        <a href="event.html">Events</a>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Platform</h4>
+                        <a href="login.html">Login</a>
+                        <a href="donate.html">Donate</a>
+                        <a href="volunteer.html">Volunteer</a>
+                        <a href="#">Privacy Policy</a>
+                    </div>
+                    <div class="footer-contact">
+                        <h4>Contact Us</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> 4/15, St.Josephs Street, OMR, Chennai - 600 017</p>
+                        <p><i class="fas fa-phone"></i> +91 8248936485</p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:info@ecofi.in">info@ecofi.in</a></p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 <strong>EcoFi</strong>. All rights reserved. Powered by <strong>SR</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ── Scripts ── -->
+    <!-- Essential Animations & Particles -->
+    <script src="/static/js/script.js"></script>
+    <script src="/static/js/home-animations.js"></script>
+    <!-- Custom Dashboard Logic -->
+    <script src="/static/js/dashboard.js"></script>
+    <!-- Interactive FAQ toggle -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Dummy submit functions for visual feedback
+        function submitIssue() {
+            document.getElementById('issue-status').innerText = "Report submitted successfully! Thank you.";
+            setTimeout(() => { document.getElementById('issue-status').innerText = "";}, 3000);
+        }
+        function submitFeedback() {
+            alert('Feedback submitted!');
+        }
+        function logout() {
+            localStorage.removeItem('id_token');
+        }
+    </script>
+</body>
+</html>

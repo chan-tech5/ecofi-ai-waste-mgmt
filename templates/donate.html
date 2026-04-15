@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate | EcoFi - Smart Waste Management</title>
+    <link rel="icon" type="image/png" href="/static/images/logobg.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/donate.css">
+</head>
+<body>
+
+<!-- ── Particles Canvas ── -->
+<canvas id="particles"></canvas>
+
+<!-- ── Navigation Bar ── -->
+<header class="header" id="navbar">
+    <div class="logo">
+        <img src="/static/images/logo-eco.svg" alt="EcoFi Logo">
+    </div>
+    <button class="hamburger" id="menu-toggle">
+        <span></span><span></span><span></span>
+    </button>
+    <nav class="taskbar" id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="donate.html" class="nav-active">Donate</a>
+        <a href="community.html">Community</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="event.html">Events</a>
+        <a href="about.html">About</a>
+        <a href="#contact">Contact</a>
+        <a href="login.html" class="nav-login">Login <i class="fas fa-arrow-right"></i></a>
+    </nav>
+</header>
+
+<!-- ── Hero Banner ── -->
+<section class="donate-hero">
+    <div class="donate-hero-overlay"></div>
+    <div class="donate-hero-content reveal">
+        <div class="hero-badge"><i class="fas fa-hand-holding-heart"></i> Make a Difference</div>
+        <h1>Fund a <span class="gradient-text">Greener</span> Tomorrow</h1>
+        <p>Every rupee you donate plants seeds of change — from AI-powered waste sorting to community cleanups, your contribution directly fuels India's clean revolution.</p>
+    </div>
+</section>
+
+<!-- ── Why Donate Section ── -->
+<section class="why-donate">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fas fa-question-circle"></i> Why Donate?</span>
+            <h2>Your Money Creates <span class="gradient-text">Real Impact</span></h2>
+        </div>
+        <div class="why-grid">
+            <div class="why-card reveal" data-delay="0">
+                <div class="why-icon"><i class="fas fa-robot"></i></div>
+                <h3>AI Waste Classification</h3>
+                <p>Funds train our AI models that help millions identify and sort waste correctly — reducing landfill contamination by up to 40%.</p>
+            </div>
+            <div class="why-card reveal" data-delay="100">
+                <div class="why-icon"><i class="fas fa-trash-restore-alt"></i></div>
+                <h3>Community Cleanups</h3>
+                <p>₹500 can clean 1 km of roadside waste. We organize monthly drives across 50+ cities with volunteers and smart tracking.</p>
+            </div>
+            <div class="why-card reveal" data-delay="200">
+                <div class="why-icon"><i class="fas fa-seedling"></i></div>
+                <h3>Circular Economy</h3>
+                <p>Your donation supports recyclers, upcyclers, and eco-entrepreneurs who transform waste into valuable products.</p>
+            </div>
+            <div class="why-card reveal" data-delay="300">
+                <div class="why-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3>Eco Education</h3>
+                <p>We run free workshops in schools and colleges teaching waste management, composting, and sustainability skills.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Impact Numbers ── -->
+<section class="donate-impact">
+    <div class="container">
+        <div class="impact-strip reveal">
+            <div class="impact-item">
+                <span class="impact-num counter" data-target="5000">0</span><span class="impact-suffix">Kg</span>
+                <p>Waste Recycled</p>
+            </div>
+            <div class="impact-divider"></div>
+            <div class="impact-item">
+                <span class="impact-num counter" data-target="50">0</span><span class="impact-suffix">+</span>
+                <p>Cities Reached</p>
+            </div>
+            <div class="impact-divider"></div>
+            <div class="impact-item">
+                <span class="impact-num counter" data-target="1500">0</span><span class="impact-suffix">+</span>
+                <p>Volunteers</p>
+            </div>
+            <div class="impact-divider"></div>
+            <div class="impact-item">
+                <span class="impact-num counter" data-target="12000">0</span><span class="impact-suffix">Kg</span>
+                <p>CO₂ Saved</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Where Your Money Goes ── -->
+<section class="money-breakdown">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fas fa-chart-pie"></i> Transparency</span>
+            <h2>Where Your <span class="gradient-text">₹1000</span> Goes</h2>
+            <p>100% transparency — every rupee is accounted for.</p>
+        </div>
+        <div class="breakdown-grid reveal">
+            <div class="breakdown-bar">
+                <div class="bar-label"><span>AI & Technology</span><span>₹350</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--fill-width: 35%;"><span class="bar-percent">35%</span></div></div>
+            </div>
+            <div class="breakdown-bar">
+                <div class="bar-label"><span>Community Cleanups</span><span>₹300</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--fill-width: 30%;"><span class="bar-percent">30%</span></div></div>
+            </div>
+            <div class="breakdown-bar">
+                <div class="bar-label"><span>Education Programs</span><span>₹200</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--fill-width: 20%;"><span class="bar-percent">20%</span></div></div>
+            </div>
+            <div class="breakdown-bar">
+                <div class="bar-label"><span>Operations & Growth</span><span>₹150</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--fill-width: 15%;"><span class="bar-percent">15%</span></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Donation Form ── -->
+<section class="donate-form-section" id="donate-now">
+    <div class="container">
+        <div class="donate-layout">
+            <!-- Left: Motivation -->
+            <div class="donate-motivation reveal">
+                <h2>Every <span class="gradient-text">₹1</span> Matters</h2>
+                <p>Your generosity powers change. Whether it's ₹100 or ₹10,000 — you're part of the solution.</p>
+                
+                <div class="donation-tiers">
+                    <div class="tier">
+                        <div class="tier-icon">☕</div>
+                        <div class="tier-info">
+                            <strong>₹100</strong>
+                            <p>Provides 10 eco-bags to street vendors</p>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <div class="tier-icon">🌱</div>
+                        <div class="tier-info">
+                            <strong>₹500</strong>
+                            <p>Cleans 1 km of roadside waste</p>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <div class="tier-icon">🤖</div>
+                        <div class="tier-info">
+                            <strong>₹2,000</strong>
+                            <p>Trains AI model on 500 waste images</p>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <div class="tier-icon">🏫</div>
+                        <div class="tier-info">
+                            <strong>₹5,000</strong>
+                            <p>Sponsors a school eco-workshop</p>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <div class="tier-icon">🌍</div>
+                        <div class="tier-info">
+                            <strong>₹10,000</strong>
+                            <p>Sets up a smart bin in a community</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trust-badges">
+                    <div class="trust"><i class="fas fa-shield-alt"></i> 100% Secure</div>
+                    <div class="trust"><i class="fas fa-receipt"></i> Tax Deductible</div>
+                    <div class="trust"><i class="fas fa-lock"></i> Encrypted</div>
+                </div>
+            </div>
+
+            <!-- Right: Form -->
+            <div class="donate-card reveal" data-delay="150">
+                <div class="donate-card-header">
+                    <i class="fas fa-heart"></i>
+                    <h3>Make Your Donation</h3>
+                </div>
+
+                <!-- Quick amount buttons -->
+                <div class="quick-amounts">
+                    <button class="amt-btn" data-amount="100">₹100</button>
+                    <button class="amt-btn" data-amount="500">₹500</button>
+                    <button class="amt-btn active" data-amount="1000">₹1,000</button>
+                    <button class="amt-btn" data-amount="2000">₹2,000</button>
+                    <button class="amt-btn" data-amount="5000">₹5,000</button>
+                    <button class="amt-btn" data-amount="10000">₹10,000</button>
+                </div>
+
+                <form id="donation-form">
+                    <div class="form-group">
+                        <label for="donor-name"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="donor-name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="donor-email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="donor-email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="donor-phone"><i class="fas fa-phone"></i> Phone</label>
+                        <input type="tel" id="donor-phone" placeholder="+91 XXXXX XXXXX" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="donor-amount"><i class="fas fa-rupee-sign"></i> Amount</label>
+                            <input type="number" id="donor-amount" placeholder="1000" min="1" value="1000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="donor-frequency"><i class="fas fa-sync-alt"></i> Frequency</label>
+                            <select id="donor-frequency">
+                                <option value="one-time">One-time</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="yearly">Yearly</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="donor-payment"><i class="fas fa-credit-card"></i> Payment Method</label>
+                        <select id="donor-payment" required>
+                            <option value="">Choose method...</option>
+                            <option value="upi">UPI (GPay / PhonePe / Paytm)</option>
+                            <option value="card">Credit / Debit Card</option>
+                            <option value="netbanking">Net Banking</option>
+                            <option value="wallet">Wallet</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="donor-message"><i class="fas fa-comment"></i> Message (Optional)</label>
+                        <textarea id="donor-message" rows="2" placeholder="Leave a note of support..."></textarea>
+                    </div>
+                    <button type="submit" class="donate-submit-btn" id="donate-btn">
+                        <i class="fas fa-heart"></i> Donate ₹<span id="btn-amount">1,000</span>
+                    </button>
+                    <p class="form-note"><i class="fas fa-lock"></i> Your information is secure and encrypted.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Success Modal ── -->
+<div class="modal-overlay" id="success-modal">
+    <div class="modal-card">
+        <div class="modal-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h2>Thank You! 💚</h2>
+        <p class="modal-name">Dear <span id="modal-donor-name">Donor</span>,</p>
+        <p>Your generous donation of <strong>₹<span id="modal-amount">0</span></strong> has been received successfully!</p>
+        <div class="modal-receipt">
+            <p><strong>Receipt ID:</strong> <span id="modal-receipt-id">---</span></p>
+            <p><strong>Date:</strong> <span id="modal-date">---</span></p>
+            <p><strong>Method:</strong> <span id="modal-method">---</span></p>
+        </div>
+        <p class="modal-impact">Your contribution will help recycle <strong><span id="modal-kg">0</span> kg</strong> of waste and save <strong><span id="modal-co2">0</span> kg</strong> of CO₂ emissions.</p>
+        <div class="modal-actions">
+            <button class="btn-primary" onclick="closeModal()"><i class="fas fa-home"></i> Back to Home</button>
+            <button class="btn-outline-modal" onclick="donateAgain()"><i class="fas fa-redo"></i> Donate Again</button>
+        </div>
+    </div>
+</div>
+
+<!-- ── Testimonials ── -->
+<section class="testimonials">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fas fa-quote-left"></i> Voices</span>
+            <h2>What Our <span class="gradient-text">Donors</span> Say</h2>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card reveal" data-delay="0">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p>"I donated ₹2,000 and could see exact updates on how my money was used. The transparency is incredible!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RS</div>
+                    <div>
+                        <strong>Ravi Sharma</strong>
+                        <span>Monthly Donor, Mumbai</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal" data-delay="150">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p>"EcoFi's school workshop programs are amazing. My daughter's school now has a composting unit funded by donations."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">PM</div>
+                    <div>
+                        <strong>Priya Menon</strong>
+                        <span>One-time Donor, Chennai</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal" data-delay="300">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>"As a corporate partner, we've donated ₹50,000. The impact dashboard showing trees saved and CO₂ reduced is motivating."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AK</div>
+                    <div>
+                        <strong>Arjun Kapoor</strong>
+                        <span>CSR Lead, Bangalore</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="donate-faq">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fas fa-question"></i> FAQ</span>
+            <h2>Common <span class="gradient-text">Questions</span></h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item reveal" data-delay="0">
+                <button class="faq-toggle">
+                    <span>Is my donation tax deductible?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! EcoFi is a registered non-profit under Section 80G. You'll receive an 80G tax exemption certificate via email within 24 hours of your donation.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal" data-delay="100">
+                <button class="faq-toggle">
+                    <span>How is my money used?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>35% goes to AI & technology development, 30% to community cleanups, 20% to education programs, and 15% to operations. We publish quarterly impact reports.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal" data-delay="200">
+                <button class="faq-toggle">
+                    <span>Can I cancel a recurring donation?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely. You can cancel anytime from your dashboard or by emailing support@ecofi.in. No questions asked.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal" data-delay="300">
+                <button class="faq-toggle">
+                    <span>Is the payment secure?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>100%. We use 256-bit SSL encryption and comply with PCI-DSS standards. We never store your card details on our servers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer id="contact">
+    <div class="footer-wave">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,60 1440,60 L1440,120 L0,120 Z" fill="currentColor"/>
+        </svg>
+    </div>
+    <div class="footer-content">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/static/images/logo-eco.svg" alt="EcoFi" class="footer-logo">
+                    <p>AI-powered waste management for a sustainable tomorrow.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="community.html">Community</a>
+                    <a href="marketplace.html">Marketplace</a>
+                    <a href="event.html">Events</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Platform</h4>
+                    <a href="login.html">Login</a>
+                    <a href="donate.html">Donate</a>
+                    <a href="volunteer.html">Volunteer</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 4/15, St.Josephs Street, OMR, Chennai - 600 017</p>
+                    <p><i class="fas fa-phone"></i> +91 8248936485</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@ecofi.in">info@ecofi.in</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 <strong>EcoFi</strong>. All rights reserved. Powered by <strong>SR</strong>.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="/static/js/donate.js"></script>
+
+</body>
+</html>
