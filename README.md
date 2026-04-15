@@ -1,4 +1,4 @@
-# EcoFi - AI-Powered Waste Management Portal 🌿⚖️
+# EcoFi - AI-Powered Waste Management Portal 🌿
 
 **EcoFi** is a premium, full-stack waste management platform built to modernize how individuals and businesses classify, track, and recycle waste. Combining a state-of-the-art **Glassmorphism UI** with a high-accuracy **AI Intelligence Engine**, EcoFi transforms environmental responsibility into a data-driven experience.
 
@@ -91,7 +91,7 @@ SWM/
 
 ---
 
-## ⚙️ Deployment & Placement Demo
+## ⚙️ Deployment
 
 1.  **Clone & Clean**: The repository is pre-configured with a `.gitignore` to ensure no sensitive or unnecessary environment files are included.
 2.  **AI Workspace Setup**:
